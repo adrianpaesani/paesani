@@ -6,5 +6,6 @@ from openerp import models, fields, api, _
 #-------------------------------------------------------------
 class Capacity(models.Model):
 	_name = 'cylinder.capacity'
+	_order = 'name desc, id desc'
 
 	name = fields.Char('Name', required=True)

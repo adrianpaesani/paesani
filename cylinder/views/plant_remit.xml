@@ -76,7 +76,7 @@
                   </group>
                   <field name="state" invisible="1" />
                 </form>
-                <label for="">Cylinders Out</label>
+                <strong>Salida</strong>
                 <tree string="Plant Remit Lines Out" editable="bottom" >
                   <field name="sequence" widget="handle" />
                   <field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
@@ -101,7 +101,7 @@
                   </group>
                   <field name="state" invisible="1" />
                 </form>
-                <label for="">Cylinders In</label>
+                <strong>Entrada</strong>
                 <tree string="Plant Remit Lines In" editable="bottom" >
                   <field name="sequence" widget="handle" />
                   <field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />

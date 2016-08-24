@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-24 02:26+0000\n"
-"PO-Revision-Date: 2016-08-24 02:26+0000\n"
+"POT-Creation-Date: 2016-08-24 08:33+0000\n"
+"PO-Revision-Date: 2016-08-24 08:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -162,6 +162,9 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: cylinder
+#: field:cylinder.plant_remit,company_id:0
+#: field:cylinder.plant_remit.line_in,company_id:0
+#: field:cylinder.plant_remit.line_out,company_id:0
 #: field:cylinder.remit,company_id:0
 #: field:cylinder.remit.line_in,company_id:0
 #: field:cylinder.remit.line_out,company_id:0
@@ -280,19 +283,18 @@ msgstr "Remitos de Planta"
 #: view:cylinder.remit:cylinder.view_remit_form
 #: view:cylinder.remit:cylinder.view_remit_tree
 #: selection:cylinder.remit,state:0
-#: model:ir.model,name:cylinder.model_cylinder_remit
 msgid "Cylinder Remit"
 msgstr "Remito de Cilindro"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_remit_line_in
+msgid "Cylinder Remit Line In"
+msgstr "Cylinder Remit Line In"
 
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_out
 msgid "Cylinder Remit Line Out"
 msgstr "Remito Linea Salida"
-
-#. module: cylinder
-#: model:ir.model,name:cylinder.model_cylinder_remit_line_in
-msgid "Cylinder Remit Line in"
-msgstr "Remito Linea Entrada"
 
 #. module: cylinder
 #: view:cylinder.remit:cylinder.view_cylinder_remit
@@ -311,18 +313,6 @@ msgstr "Remitos de Cilindro sin confirmar"
 #: model:ir.ui.menu,name:cylinder.main_cylinders_menu
 msgid "Cylinders"
 msgstr "Cilindros"
-
-#. module: cylinder
-#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
-#: view:cylinder.remit:cylinder.view_remit_form
-msgid "Cylinders In"
-msgstr "Entrada"
-
-#. module: cylinder
-#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
-#: view:cylinder.remit:cylinder.view_remit_form
-msgid "Cylinders Out"
-msgstr "Salida"
 
 #. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_tree_view
@@ -351,6 +341,11 @@ msgstr "Fecha de Creación del Remito."
 #: view:website:cylinder.report_remit_view
 msgid "Date:"
 msgstr "Fecha:"
+
+#. module: cylinder
+#: field:cylinder.cylinders,days_rented:0
+msgid "Days rented"
+msgstr "Días de Alquiler"
 
 #. module: cylinder
 #: field:res.company,plant_remit_note:0
@@ -417,6 +412,12 @@ msgstr "Remitos Borrador"
 #: model:ir.model,name:cylinder.model_mail_compose_message
 msgid "Email composition wizard"
 msgstr "Asistente de composición de e-mail"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Entrada"
+msgstr "Entrada"
 
 #. module: cylinder
 #: field:cylinder.plant_remit,message_follower_ids:0
@@ -704,7 +705,7 @@ msgid "Plant Arrival Detail"
 msgstr "Detalle de Ingreso de Planta"
 
 #. module: cylinder
-#: model:ir.model,name:cylinder.model_cylinder_plant_remit
+#: model:ir.model,name:cylinder.model_cylinder_remit
 msgid "Plant Remit"
 msgstr "Remito de Planta"
 
@@ -885,6 +886,12 @@ msgid "Salesperson"
 msgstr "Responsable"
 
 #. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Salida"
+msgstr "Salida"
+
+#. module: cylinder
 #: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
 msgid "Search Cylinders Plant Remit"
 msgstr "Buscar Remitos de Planta"
@@ -992,4 +999,3 @@ msgstr "No puede eliminar una línea del remito.\n"
 #, python-format
 msgid "You can only delete draft remits!"
 msgstr "¡Sólo puede eliminar remitos borrador!"
-

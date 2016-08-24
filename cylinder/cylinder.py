@@ -10,6 +10,7 @@ from datetime import timedelta
 class Cylinder(models.Model):
 	_name = 'cylinder.cylinders'
 	_rec_name = 'number'
+	_order = 'number desc, id desc'
 
 	# Cylinder Info
 	number = fields.Char('Cylinder Number', required=True)
@@ -38,7 +39,8 @@ class Cylinder(models.Model):
 	last_rental_date = fields.Date('Last Rental Date')
 	last_return_date = fields.Date('Last Return Date')
 	# Extras
-	days_rented = fields.Float(digits=(6,2), compute='_calculation')
+	days_rented = fields.Float(digits=(6,2), compute='_calculation', store=True)
+
 
 	@api.depends('last_rental_date')
 	def _calculation(self):
