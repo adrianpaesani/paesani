@@ -70,7 +70,7 @@
 											<field name="cylinder_id" context="{'partner_id':parent.partner_id,'gas':cylinder_gas,'capacity':cylinder_capacity,'cap':cap}" />
 											<!-- <field  /> -->
 											<div>
-												<field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" name="cylinder_gas" class="oe_inline" />
+												<field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" name="cylinder_gas" class="oe_inline" />
 												<field name="cylinder_gas" groups="cylinder.gases" class="oe_inline oe_no_button" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
 											</div>
 										</group>
@@ -80,11 +80,11 @@
 								<label for="">Cylinders Out</label>
 								<tree string="Remit Lines Out" editable="bottom" >
 									<field name="sequence" widget="handle" />
-									<field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" context="{'company_id': parent.company_id}" />
+									<field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
 									<field name="state" invisible="1" />
 								</tree>
 							</field>
@@ -95,7 +95,7 @@
 											<field name="cylinder_id" context="{'partner_id':parent.partner_id,'gas':cylinder_gas,'capacity':cylinder_capacity,'cap':cap}" />
 											<!-- <field  /> -->
 											<div>
-												<field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" name="cylinder_gas" class="oe_inline" />
+												<field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" name="cylinder_gas" class="oe_inline" />
 												<field name="cylinder_gas" groups="cylinder.gases" class="oe_inline oe_no_button" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
 											</div>
 										</group>
@@ -105,11 +105,11 @@
 								<label for="">Cylinders In</label>
 								<tree string="Remit Lines In" editable="bottom" >
 									<field name="sequence" widget="handle" />
-									<field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity, 'company_id': parent.company_id}" />
-									<field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" context="{'company_id': parent.company_id}" />
+									<field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
 									<field name="state" invisible="1" />
 								</tree>
 							</field>

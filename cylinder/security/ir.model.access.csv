@@ -2,6 +2,8 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_cylinder_cylinders,cylinder.cylinders,model_cylinder_cylinders,,1,1,1,1
 access_cylinder_gases,cylinder.gases,model_cylinder_gases,,1,1,1,1
 access_cylinder_capacity,cylinder.capacity,model_cylinder_capacity,,1,1,1,1
+access_cylinder_remit,cylinder.remit,model_cylinder_remit,,1,1,1,1
+access_cylinder_plant_remit,cylinder.plant_remit,model_cylinder_plant_remit,,1,1,1,1
 access_cylinder_remit_line_out,access_cylinder_remit_line_out,model_cylinder_remit_line_out,,1,1,1,1
 access_cylinder_remit_line_in,access_cylinder_remit_line_in,model_cylinder_remit_line_in,,1,1,1,1
 access_cylinder_plant_remit_line_out,access_cylinder_plant_remit_line_out,model_cylinder_plant_remit_line_out,,1,1,1,1
