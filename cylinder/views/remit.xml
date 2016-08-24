@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem
+			name="Remits"
+			id="movement_remit_menu"
+			parent="main_cylinders_menu" />
+
+		<record id="action_remits" model="ir.actions.act_window">
+			<field name="name">Remits</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">cylinder.remit</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			
+		</record>
+
+		<menuitem
+			name="Remit"
+			id="movement_remit_menu_remit"
+			action="action_remits" />
+
+		<record id="view_remit_tree" model="ir.ui.view">
+			<field name="name">cylinder.remit.tree</field>
+			<field name="model">cylinder.remit</field>
+			<field name="arch" type="xml">
+				<tree string="Remits">
+					<field name="remit_number" string="Remit Number" />
+					<field name="date_remit" />
+					<field name="state" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+<!-- state = fields.Selection([
+		('draft', "Draft"),
+		('confirmed', "Confirmed"),
+		('remit', 'Cylinder Remit'),
+		('done', "Done"),
+		('cancel', "Cancelled") 
+
+	remit_number
+	date_remit
+	user_id
+	partner_id
+	notes
+	remit_line
+	cylinder_id
+	-->
+
+
+
+		<record id="view_remit_form" model="ir.ui.view">
+			<field name="name">cylinder.remit.form</field>
+			<field name="model">cylinder.remit</field>
+			<field name="arch" type="xml">
+				<form string="Create Remit">
+					<header>
+						<button name="print_remit" string="Print" type="object"
+						states="draft" class="btn-primary" />
+						<button name="print_remit" string="Print" type="object"
+						states="confirmed,remit" class="btn-primary" />
+						<button name="action_confirm" string="Confirm Remit" type="object"
+						states="draft" class="btn-primary" />
+						<button name="action_cancel" string="Cancel" type="object"
+						states="draft,confirmed"/>
+						<button name="action_draft" states="cancel" type="object"
+						string="Set to Confirmed" />
+						<button name="action_done" type="object" string="Set to Done"
+						states="remit" 
+							help="If a remit is done, you cannot modify it manually
+							anymore. However, you will still be able to Remit. This is
+							used to freeze the Remit." />
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirmed,remit,done" />
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="remit_number" readonly="1" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="partner_id" context="{'show_address': 1}" options='{"always_reload":True}' />
+							</group>
+							<group>
+								<field name="date_remit" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Remit Lines">
+								<field name="remit_line" mode="tree,kanban"
+									attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+									<form string="Remit Lines">
+										<group>
+											<group>
+												<field name="cylinder_id" />
+												<field name="remit_status" invisible="1"/>
+												<!-- <field name="gas_id" /> -->
+												<!-- <field name="cap" /> -->
+											</group>
+										</group>
+									</form>
+									<tree string="Remit Lines" editable="bottom"
+									decoration-info="remit_status=='confirmed'" >
+										<field name="sequence" widget="handle" />
+										<field name="cylinder_id" />
+										<!-- <field name="number" /> -->
+										<field name="state" invisible="1" />
+										<field name="remit_status" invisible="1" />
+									</tree>
+								</field>
+								<field name="notes" class="oe_inline" placeholder="Notes" />
+							</page>
+							<page string="Other Information">
+								<group>
+									<group string="Rent Information">
+										<field name="user_id" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	</data>
+</openerp>

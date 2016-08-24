@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+    <record id="view_cylinder_remit" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.calendar</field>
+      <field name="model">cylinder.plant_remit</field>
+      <field name="arch" type="xml">
+        <calendar string="Cylinder Plant Remits" color="state" date_start="date_remit">
+          <field name="partner_id" />
+        </calendar>
+      </field>
+    </record>
+
+    <record id="view_plant_remit_tree" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.tree</field>
+      <field name="model">cylinder.plant_remit</field>
+      <field name="priority">2</field>
+      <field name="arch" type="xml">
+        <tree string="Cylinder Plant Remit">
+          <!-- <field name="message_needaction" invisible="1" /> -->
+          <field name="name" string="Remit Number" />
+          <field name="date_remit" />
+          <field name="partner_id" />
+          <field name="user_id" />
+          <field name="state" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="plant_remit_form_view" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.form</field>
+      <field name="model">cylinder.plant_remit</field>
+      <field name="arch" type="xml">
+        <form string="Cylinder Plant Remit">
+        <header>
+          <!-- <button name="action_remit_send" string="Send by Email" type="object" states="draft" class="btn-primary" />
+          <button name="action_remit_send" string="Send by Email" type="object" states="sent,remit" /> -->
+          <button name="print_remit" string="Print" type="object" states="done" class="btn-primary" />
+          <button name="action_confirm" states="sent" string="Confirm Remit" class="btn-primary" type="object" />
+          <button name="action_confirm" states="draft" string="Confirm Remit" type="object" />
+          <button name="action_cancel" states="draft,sent,remit" type="object" string="Cancel" />
+          <button name="action_draft" states="cancel" type="object" string="Set to Remit" />
+          <button name="action_done" type="object" string="Set to Done" states="remit" help="If a remit is done, you cannot modify it manually anymore. However, you will still be able to done. This is used to freeze the remit." />
+          <field name="state" widget="statusbar" statusbar_visible="draft,sent,remit,done" />
+        </header>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="name" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="partner_id" options='{"always_reload": True}' />
+              <field name="partner_shipping_id" />
+            </group>
+            <group>
+              <field name="date_remit" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Remit Lines">
+              <field name="plant_remit_line_out" mode="tree" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+                <form string="Plant Remit Lines Out">
+                  <group>
+                    <group>
+                      <field name="cylinder_id" context="{'partner_id':parent.partner_id,'gas':cylinder_gas,'capacity':cylinder_capacity,'cap':cap}" />
+                      <!-- <field  /> -->
+                      <div>
+                        <field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" name="cylinder_gas" class="oe_inline" />
+                        <field name="cylinder_gas" groups="cylinder.gases" class="oe_inline oe_no_button" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
+                      </div>
+                    </group>
+                  </group>
+                  <field name="state" invisible="1" />
+                </form>
+                <label for="">Cylinders Out</label>
+                <tree string="Plant Remit Lines Out" editable="bottom" >
+                  <field name="sequence" widget="handle" />
+                  <field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+                  <field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" context="{'company_id': parent.company_id}" />
+                  <field name="state" invisible="1" />
+                </tree>
+              </field>
+              <field name="plant_remit_line_in" mode="tree" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+                <form string="Plant Remit Lines In">
+                  <group>
+                    <group>
+                      <field name="cylinder_id" context="{'partner_id':parent.partner_id,'gas':cylinder_gas,'capacity':cylinder_capacity,'cap':cap,'company_id': parent.company_id}" />
+                      <!-- <field  /> -->
+                      <div>
+                        <field context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" name="cylinder_gas" class="oe_inline" />
+                        <field name="cylinder_gas" groups="cylinder.gases" class="oe_inline oe_no_button" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
+                      </div>
+                    </group>
+                  </group>
+                  <field name="state" invisible="1" />
+                </form>
+                <label for="">Cylinders In</label>
+                <tree string="Plant Remit Lines In" editable="bottom" >
+                  <field name="sequence" widget="handle" />
+                  <field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity,'company_id': parent.company_id}" />
+                  <field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
+                  <field name="state" invisible="1" />
+                </tree>
+              </field>
+              <field name="note" class="oe_inline" placeholder="Setup notes." />
+              <div class="oe_clear" />
+            </page>
+            <page string="Other Information">
+              <group>
+                <group string="Remit Information" name="sales_person">
+                  <field name="user_id" />
+                  <field name="provider_remit_ref" />
+                </group>
+                <group string="Reporting" name="technical" groups="base.group_no_one">
+                  <!-- <field groups="base.group_no_one" name="origin" /> -->
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers" />
+          <field name="message_ids" widget="mail_thread" />
+        </div>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_cylinder_plant_remit_filter" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.list.select</field>
+      <field name="model">cylinder.plant_remit</field>
+      <field name="arch" type="xml">
+        <search string="Search Cylinders Plant Remit">
+          <field name="name" string="Cylinder Plant Remit" filter_domain="['|',('name','ilike',self),('provider_remit_ref','ilike',self)]" />
+          <field name="partner_id" operator="child_of" />
+          <field name="user_id" />
+          <filter string="My Remits" domain="[('user_id','=',uid)]" name="my_cylinder_plant_remits_filter" />
+          <separator />
+          <filter string="Draft Remits" name="draft" domain="[('state','in',('draft','sent'))]" help="Cylinder Remits that haven't yet been confirmed" />
+          <filter string="Remits" name="remits" domain="[('state','in',('remit','done'))]" />
+          <!-- <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]" /> -->
+          <group expand="0" string="Group by">
+            <filter string="Salesperson" domain="[]" context="{'group_by':'user_id'}"/>
+            <filter name="customer" string="Customer" domain="[]" context="{'group_by':'partner_id'}"/>
+            <filter string="Remit Month" domain="[]" context="{'group_by':'date_remit'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_plant_remits" model="ir.actions.act_window">
+      <field name="name">Cylinder Plant Remits</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cylinder.plant_remit</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="search_view_id" ref="view_cylinder_plant_remit_filter"/>
+      <field name="context">{}</field>
+      <field name="domain">[('state', 'in', ('draft', 'sent', 'remit', 'done', 'cancel'))]</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Create a Remit, the first step of a new plant remit.
+        </p><p>
+          Your next action should flow efficiently: confirm the Remit.
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="plant_remits" name="Plant" parent="main_cylinders_menu" />
+
+    <menuitem id="plant_remits_menu" name="Remits In/Out" parent="plant_remits" action="action_plant_remits" />        
+
+    </data>
+</openerp>

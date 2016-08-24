@@ -1,0 +1,36 @@
+<openerp>
+	<data>
+		<record model="cylinder.gases" id="gases_argon">
+			<field name="name">Argon</field>
+			<field name="description">Argon</field>
+		</record>		
+		<record model="cylinder.gases" id="gases_oxygen">
+			<field name="name">Oxygen</field>
+			<field name="description">Oxygen</field>
+		</record>
+
+		<record model="cylinder.capacity" id="capacity_1059">
+			<field name="name">10.59 m3</field>
+		</record>
+		<record model="cylinder.capacity" id="capacity_1053">
+			<field name="name">10.53 m3</field>
+		</record>
+
+		<record model="cylinder.cylinders" id="cylinder_500101">
+			<field name="number">500101</field>
+			<field name="details">Cylinder of Oxygen</field>
+			<field name="rental" eval="True" />
+			<field name="active" eval="True" />
+			<field name="available" eval="False" />
+			<field name="plant" eval="False" />
+		</record>
+		<record model="cylinder.cylinders" id="cylinder_513444">
+			<field name="number">513444</field>
+			<field name="details">Cylinder of Oxygen</field>
+			<field name="rental" eval="False" />
+			<field name="active" eval="True" />
+			<field name="available" eval="False" />
+			<field name="plant" eval="True" />
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="capacity_form_view">
+            <field name="name">capacity.form</field>
+            <field name="model">cylinder.capacity</field>
+            <field name="arch" type="xml">
+                <form string="Capacity Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="capacity_search_view">
+            <field name="name">capacity.search</field>
+            <field name="model">cylinder.capacity</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="capacities_list_action">
+            <field name="name">Capacity</field>
+            <field name="res_model">cylinder.capacity</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first capacity
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="capacity_menu" name="Capacity" parent="main_cylinders_menu"/>
+        
+        <menuitem id="capacity_menu" name="Capacity" parent="cylinder_menu" action="capacities_list_action"/>
+
+    </data>
+</openerp>
