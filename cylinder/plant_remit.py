@@ -369,32 +369,3 @@ class CylinderPlantCylinder(models.Model):
 	plant_count_in = fields.Integer(compute="_plant_count_lines_in", string="# In from Plant Movements")
 	remit_count_out = fields.Integer(compute="_remit_count_lines_out", string="# Out to Client Movements")
 	remit_count_in = fields.Integer(compute="_remit_count_lines_in", string="# In from Client Movements")
-
-
-# class Partner(models.Model):
-#     _name = _inherit = "res.partner"
-
-#     @api.one
-#     @api.depends("contract_ids")
-#     def _project_count(self):
-#         self.project_count = len(self.env["project.project"].search(
-#             [("analytic_account_id",
-#               "in",
-#               [c.id for c in self.contract_ids])]))
-
-#     project_count = fields.Integer(compute="_project_count")
-
-
-    # @api.multi
-    # def _plant_count(self):
-    #   r = {}
-    #   domain = [
-    #       ('active', '=', True),
-    #   ]
-    #   # for group in self.env['cylinder.report'].read_group(domain, ['cylinder_id'], ['cylinder_id']):
-    #   #   r[group['cylinder_id'][0]] = group['cylinder_gas']
-    #   for cylinder in self:
-    #       cylinder.plant_count = r.get(cylinder.id, 0)
-
-
-    # plant_count = fields.Integer(compute='_plant_count', string='# Plant Movements')
