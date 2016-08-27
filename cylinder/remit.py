@@ -399,19 +399,3 @@ class MailComposeMessage(models.TransientModel):
 			if remit.state == 'draft':
 				remit.state = 'sent'
 		return super(MailComposeMessage, self.with_context(mail_post_autofollow=True)).send_mail(auto_commit=auto_commit)
-
-class CylinderCylinder(models.Model):
-	_inherit = 'cylinder.cylinders'
-
-	@api.multi
-	def _rent_count(self):
-		r = {}
-		domain = [
-			('active', '=', True),
-		]
-		for group in self.env['cylinder.report'].read_group(domain, ['cylinder_id'], ['cylinder_id']):
-			r[group['cylinder_id'][0]] = group['cylinder_gas']
-		for cylinder in self:
-			cylinder.rent_count = r.get(cylinder.id, 0)
-
-	rent_count = fields.Integer(compute='_rent_count', string='# Rents')
