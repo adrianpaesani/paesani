@@ -1010,8 +1010,8 @@ msgstr "Resumen"
 #: sql_constraint:cylinder.cylinders:0
 msgid "The number must be unique!.\n"
 "This number already exists."
-msgstr "The number must be unique!.\n"
-"This number already exists."
+msgstr "¡El número debe ser único!.\n"
+"Este número ya existe."
 
 #. module: cylinder
 #: field:cylinder.cylinders,gas_id:0
