@@ -11,6 +11,9 @@
                             <label string="Cylinder Number"/>
                             <h1><field name="number" class="oe_inline"/></h1>
                         </div>
+                        <div name="button_box" position="inside">
+
+                        </div>
                         <field name="create_date" readonly="1" string="Created On"/>
                         <field name="details"/>
                         <notebook>

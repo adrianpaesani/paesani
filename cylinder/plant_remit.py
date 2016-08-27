@@ -208,9 +208,16 @@ class CylinderPlantRemitLineOut(models.Model):
 	@api.multi
 	def _action_status_done(self, date_remit, partner_id, name):
 
+		cylinder_numbers = []
 		cylinder_ids = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
+			cylinder_numbers.append(item.cylinder_id.number)
+
+		for each in cylinder_numbers:
+			count = cylinder_numbers.count(each)
+			if count > 1:
+				raise exceptions.ValidationError('The number: "%s" is repeated in Lines Out.\nPlease remove and try again.' % (each))
 
 		for record in cylinder_ids:
 			record.write({'plant': True})
@@ -300,9 +307,16 @@ class CylinderPlantRemitLineIn(models.Model):
 	@api.multi
 	def _action_status_done(self, date_remit, partner_id, name):
 
+		cylinder_numbers = []
 		cylinder_ids = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
+			cylinder_numbers.append(item.cylinder_id.number)
+
+		for each in cylinder_numbers:
+			count = cylinder_numbers.count(each)
+			if count > 1:
+				raise exceptions.ValidationError('The number: "%s" is repeated in Lines In.\nPlease remove and try again.' % (each))
 
 		for record in cylinder_ids:
 			record.write({'plant': False})
@@ -315,7 +329,7 @@ class CylinderPlantRemitLineIn(models.Model):
 	def unlink(self):
 		if self.filtered(lambda x: x.state in ('rent', 'done')):
 			raise osv.except_osv(_('Invalid Action!'), _('You can not remove a cylinder remit line.\nDiscard changes and try again.'))
-		return super(CylinderPlantRemitLineOut, self).unlink()
+		return super(CylinderPlantRemitLineIn, self).unlink()
 
 class MailComposeMessagePlantRemit(models.TransientModel):
 	_inherit = 'mail.compose.message'
@@ -328,19 +342,59 @@ class MailComposeMessagePlantRemit(models.TransientModel):
 				remit.state = 'sent'
 		return super(MailComposeMessage, self.with_context(mail_post_autofollow=True)).send_mail(auto_commit=auto_commit)
 
-
 class CylinderPlantCylinder(models.Model):
 	_inherit = 'cylinder.cylinders'
 
 	@api.multi
-	def _plant_count(self):
-		r = {}
-		domain = [
-			('active', '=', True),
-		]
-		for group in self.env['cylinder.report'].read_group(domain, ['cylinder_id'], ['cylinder_id']):
-			r[group['cylinder_id'][0]] = group['cylinder_gas']
-		for cylinder in self:
-			cylinder.rent_count = r.get(cylinder.id, 0)
+	def _plant_count_lines_out(self):
+		self.plant_count_out = len(self.env["cylinder.plant_remit.line_out"].search(
+			[("cylinder_id", "=", [self.id])]))
 
-	plant_count = fields.Integer(compute='_plant_count', string='# Plant Movements')
+	@api.multi
+	def _plant_count_lines_in(self):
+		self.plant_count_in = len(self.env["cylinder.plant_remit.line_in"].search(
+			[("cylinder_id", "=", [self.id])]))
+
+	@api.multi
+	def _remit_count_lines_out(self):
+		self.remit_count_out = len(self.env["cylinder.remit.line_out"].search(
+			[("cylinder_id", "=", [self.id])]))
+
+	@api.multi
+	def _remit_count_lines_in(self):
+		self.remit_count_in = len(self.env["cylinder.remit.line_in"].search(
+			[("cylinder_id", "=", [self.id])]))
+
+	plant_count_out = fields.Integer(compute="_plant_count_lines_out", string="# Out to Plant Movements")
+	plant_count_in = fields.Integer(compute="_plant_count_lines_in", string="# In from Plant Movements")
+	remit_count_out = fields.Integer(compute="_remit_count_lines_out", string="# Out to Client Movements")
+	remit_count_in = fields.Integer(compute="_remit_count_lines_in", string="# In from Client Movements")
+
+
+# class Partner(models.Model):
+#     _name = _inherit = "res.partner"
+
+#     @api.one
+#     @api.depends("contract_ids")
+#     def _project_count(self):
+#         self.project_count = len(self.env["project.project"].search(
+#             [("analytic_account_id",
+#               "in",
+#               [c.id for c in self.contract_ids])]))
+
+#     project_count = fields.Integer(compute="_project_count")
+
+
+    # @api.multi
+    # def _plant_count(self):
+    #   r = {}
+    #   domain = [
+    #       ('active', '=', True),
+    #   ]
+    #   # for group in self.env['cylinder.report'].read_group(domain, ['cylinder_id'], ['cylinder_id']):
+    #   #   r[group['cylinder_id'][0]] = group['cylinder_gas']
+    #   for cylinder in self:
+    #       cylinder.plant_count = r.get(cylinder.id, 0)
+
+
+    # plant_count = fields.Integer(compute='_plant_count', string='# Plant Movements')

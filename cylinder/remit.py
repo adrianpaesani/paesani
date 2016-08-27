@@ -164,56 +164,9 @@ class CylinderRemit(models.Model):
 	def action_done(self):
 		self.write({'state': 'done'})
 
-
-		# Remit Info
-		# 	last_rent_date = fields.Date('Last Rental Date')
-		# 	partner_id = fields.Many2one('res.partner', string='Partner')
-		# 	last_rent_partner_id = fields.Many2one('res.partner', string='Partner')
-		# 	last_rental_date = fields.Date('Last Rental Date')
-		# 	last_return_date = fields.Date('Last Return Date')
-		# record.write({'plant' : False})
-		# record.write({'plant_arrival_date' : self.date_remit})
-		# record.write({'arrival_control_number' : self.remit_number})
-		# record.write({'control_arrival_detail' : self.notes})
-
-		# raise exceptions.ValidationError('The selected cylinder is not in plant: "%s"' % (r.number))
-		#count = 0
-
-		# for record in self.cylinder_out_id:
-		# 	count += 1
-
-	# @api.multi
-	# def confirm_paid(self):
-	#     res = super(AccountInvoice, self).confirm_paid()
-	#     todo = set()
-	#     for invoice in self:
-	#         for line in invoice.invoice_line_ids:
-	#             for sale_line in line.sale_line_ids:
-	#                 todo.add((sale_line.order_id, invoice.number))
-	#     for (order, name) in todo:
-	#         order.message_post(body=_("Invoice %s paid") % (name))
-	#     return res
-
-		# for remit in self:
-		# 	for line in remit.remit_line_out:
-		# 		for remit_line_out in line:
-		# 			count + 1
-
-		# raise exceptions.ValidationError('count: "%s"' % (count))
 		for remit in self:
 			remit.remit_line_out._action_status_done(self.date_remit, self.partner_id.id)
 			remit.remit_line_in._action_status_done(self.date_remit, self.partner_id.id)
-
-		# for record in CylinderRemitLineOut:
-		# 	record.write({'rented': True})
-		# 	record.write({'last_rental_date': self.date_remit})
-		# 	record.write({'partner_id': self.partner_id.id})
-
-		# for record in self.cylinder_in_id:
-		# 	record.write({'rented': False})
-		# 	record.write({'last_return_date': self.date_remit})
-		# 	record.write({'partner_id': None})
-		# 	record.write({'last_rent_partner_id': self.partner_id.id})
 
 	@api.multi
 	def action_confirm(self):
@@ -308,27 +261,26 @@ class CylinderRemitLineOut(models.Model):
 		self.cylinder_owner_id = cylinder.propietary_id.id
 		self.cap = cylinder.cap
 
-		#self.update(vals)
-		#self.update(vals1)
 		return {'domain': domain}
 
 	@api.multi
 	def _action_status_done(self, date_remit, partner_id):
 
+		cylinder_numbers = []
 		cylinder_ids = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
+			cylinder_numbers.append(item.cylinder_id.number)
+
+		for each in cylinder_numbers:
+			count = cylinder_numbers.count(each)
+			if count > 1:
+				raise exceptions.ValidationError('The number: "%s" is repeated in Lines Out.\nPlease remove and try again.' % (each))
 
 		for record in cylinder_ids:
 			record.write({'rented': True})
 			record.write({'last_rental_date': date_remit})
 			record.write({'partner_id': partner_id})
-
-		# for record in self.cylinder_in_id:
-		# 	record.write({'rented': False})
-		# 	record.write({'last_return_date': self.date_remit})
-		# 	record.write({'partner_id': None})
-		# 	record.write({'last_rent_partner_id': self.partner_id.id})
 
 		return
 
@@ -413,20 +365,21 @@ class CylinderRemitLineIn(models.Model):
 	@api.multi
 	def _action_status_done(self, date_remit, partner_id):
 
+		cylinder_numbers = []
 		cylinder_ids = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
+			cylinder_numbers.append(item.cylinder_id.number)
+
+		for each in cylinder_numbers:
+			count = cylinder_numbers.count(each)
+			if count > 1:
+				raise exceptions.ValidationError('The number: "%s" is repeated in Lines In.\nPlease remove and try again.' % (each))
 
 		for record in cylinder_ids:
 			record.write({'rented': False})
 			record.write({'last_return_date': date_remit})
 			record.write({'partner_id': partner_id})
-
-		# for record in self.cylinder_in_id:
-		# 	record.write({'rented': False})
-		# 	record.write({'last_return_date': self.date_remit})
-		# 	record.write({'partner_id': None})
-		# 	record.write({'last_rent_partner_id': self.partner_id.id})
 
 		return
 

@@ -3,7 +3,7 @@
     <data>
 
 
-    <record id="view_cylinder_remit" model="ir.ui.view">
+    <record id="view_cylinder_plant_remit" model="ir.ui.view">
       <field name="name">cylinder.plant_remit.calendar</field>
       <field name="model">cylinder.plant_remit</field>
       <field name="arch" type="xml">
@@ -25,6 +25,70 @@
           <field name="partner_id" />
           <field name="user_id" />
           <field name="state" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_plant_movements_tree_out" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.line_out.tree</field>
+      <field name="model">cylinder.plant_remit.line_out</field>
+      <field name="arch" type="xml">
+        <tree string="Movements Plant">
+          <field name="remit_id" string="Remit Number" />
+          <field name="cylinder_id" />
+          <field name="cylinder_capacity" />
+          <field name="cylinder_gas" />
+          <field name="cap" />
+          <field name="user_id" />
+          <field name="remit_partner_id" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_plant_movements_tree_in" model="ir.ui.view">
+      <field name="name">cylinder.plant_remit.line_in.tree</field>
+      <field name="model">cylinder.plant_remit.line_in</field>
+      <field name="arch" type="xml">
+        <tree string="Movements Plant">
+          <field name="remit_id" string="Remit Number" />
+          <field name="cylinder_id" />
+          <field name="cylinder_capacity" />
+          <field name="cylinder_gas" />
+          <field name="cap" />
+          <field name="user_id" />
+          <field name="remit_partner_id" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_movements_tree_out" model="ir.ui.view">
+      <field name="name">cylinder.remit.line_out.tree</field>
+      <field name="model">cylinder.remit.line_out</field>
+      <field name="arch" type="xml">
+        <tree string="Movements">
+          <field name="remit_id" string="Remit Number" />
+          <field name="cylinder_id" />
+          <field name="cylinder_capacity" />
+          <field name="cylinder_gas" />
+          <field name="cap" />
+          <field name="user_id" />
+          <field name="remit_partner_id" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_movements_tree_in" model="ir.ui.view">
+      <field name="name">cylinder.remit.line_in.tree</field>
+      <field name="model">cylinder.remit.line_in</field>
+      <field name="arch" type="xml">
+        <tree string="Movements">
+          <field name="remit_id" string="Remit Number" />
+          <field name="cylinder_id" />
+          <field name="cylinder_capacity" />
+          <field name="cylinder_gas" />
+          <field name="cap" />
+          <field name="user_id" />
+          <field name="remit_partner_id" />
         </tree>
       </field>
     </record>
@@ -156,6 +220,65 @@
           </group>
         </search>
       </field>
+    </record>
+
+    <record id="action_cylinder_plant_remit_list_out" model="ir.actions.act_window">
+        <field name="name">Cylinder Plant Remit Lines Out</field>
+        <field name="res_model">cylinder.plant_remit.line_out</field>
+        <field name="context">{'search_default_cylinder_id': [active_id], 'default_cylinder_id': active_id}</field>
+        <field name="domain">[('state', 'in', ['done']),('cylinder_id', '=', [active_id])]</field>
+        <field name="view_id" ref="view_plant_movements_tree_out"/>
+    </record>
+
+    <record id="action_cylinder_plant_remit_list_in" model="ir.actions.act_window">
+        <field name="name">Cylinder Plant Remit Lines In</field>
+        <field name="res_model">cylinder.plant_remit.line_in</field>
+        <field name="context">{'search_default_cylinder_id': [active_id], 'default_cylinder_id': active_id}</field>
+        <field name="domain">[('state', 'in', ['done']),('cylinder_id', '=', [active_id])]</field>
+        <field name="view_id" ref="view_plant_movements_tree_in"/>
+    </record>
+
+    <record id="action_cylinder_remit_list_out" model="ir.actions.act_window">
+        <field name="name">Cylinder Remit Lines Out</field>
+        <field name="res_model">cylinder.remit.line_out</field>
+        <field name="context">{'search_default_cylinder_id': [active_id], 'default_cylinder_id': active_id}</field>
+        <field name="domain">[('state', 'in', ['done']),('cylinder_id', '=', [active_id])]</field>
+        <field name="view_id" ref="view_movements_tree_out"/>
+    </record>
+
+    <record id="action_cylinder_remit_list_in" model="ir.actions.act_window">
+        <field name="name">Cylinder Remit Lines In</field>
+        <field name="res_model">cylinder.remit.line_in</field>
+        <field name="context">{'search_default_cylinder_id': [active_id], 'default_cylinder_id': active_id}</field>
+        <field name="domain">[('state', 'in', ['done']),('cylinder_id', '=', [active_id])]</field>
+        <field name="view_id" ref="view_movements_tree_in"/>
+    </record>
+
+    <record model="ir.ui.view" id="cylinder_form_view_plant_remit_button">
+        <field name="name">cylinder.cylinder.plant_remit</field>
+        <field name="model">cylinder.cylinders</field>
+        <field name="inherit_id" ref="cylinder.cylinder_form_view"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" name="%(action_cylinder_plant_remit_list_out)d"
+                    type="action" icon="fa-list-alt">
+                    <field string="Out to Plant" name="plant_count_out" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" name="%(action_cylinder_plant_remit_list_in)d"
+                    type="action" icon="fa-list-alt">
+                    <field string="In from Plant" name="plant_count_in" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" name="%(action_cylinder_remit_list_out)d"
+                    type="action" icon="fa-list-alt">
+                    <field string="Out to Client" name="remit_count_out" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" name="%(action_cylinder_remit_list_in)d"
+                    type="action" icon="fa-list-alt">
+                    <field string="In from Client" name="remit_count_in" widget="statinfo" />
+                </button>
+            </div>
+
+        </field>
     </record>
 
     <record id="action_plant_remits" model="ir.actions.act_window">

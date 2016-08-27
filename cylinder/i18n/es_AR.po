@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-24 08:33+0000\n"
-"PO-Revision-Date: 2016-08-24 08:33+0000\n"
+"POT-Creation-Date: 2016-08-27 07:15+0000\n"
+"PO-Revision-Date: 2016-08-27 07:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -274,6 +274,17 @@ msgid "Cylinder Plant Remit Line Out"
 msgstr "Remito de Planta Salida"
 
 #. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_plant_remit_list_in
+msgid "Cylinder Plant Remit Lines In"
+msgstr "Líneas de Entrada de Remitos de Planta"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_plant_remit_list_out
+msgid "Cylinder Plant Remit Lines Out"
+msgstr "Líneas de Salida de Remitos de Planta"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit
 #: model:ir.actions.act_window,name:cylinder.action_plant_remits
 msgid "Cylinder Plant Remits"
 msgstr "Remitos de Planta"
@@ -289,12 +300,22 @@ msgstr "Remito de Cilindro"
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_in
 msgid "Cylinder Remit Line In"
-msgstr "Cylinder Remit Line In"
+msgstr "Remito Línea de Entrada"
 
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_out
 msgid "Cylinder Remit Line Out"
 msgstr "Remito Linea Salida"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_remit_list_in
+msgid "Cylinder Remit Lines In"
+msgstr "Líneas de Entrada de Remitos"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_remit_list_out
+msgid "Cylinder Remit Lines Out"
+msgstr "Líneas de Salida de Remitos"
 
 #. module: cylinder
 #: view:cylinder.remit:cylinder.view_cylinder_remit
@@ -510,12 +531,22 @@ msgid "If checked new messages require your attention."
 msgstr "Si está marcado necesita su atención."
 
 #. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "In from Client"
+msgstr "Entradas (R)"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "In from Plant"
+msgstr "Entradas (P)"
+
+#. module: cylinder
 #: code:addons/cylinder/plant_remit.py:55
-#: code:addons/cylinder/plant_remit.py:225
-#: code:addons/cylinder/plant_remit.py:317
+#: code:addons/cylinder/plant_remit.py:232
+#: code:addons/cylinder/plant_remit.py:331
 #: code:addons/cylinder/remit.py:55
-#: code:addons/cylinder/remit.py:338
-#: code:addons/cylinder/remit.py:436
+#: code:addons/cylinder/remit.py:290
+#: code:addons/cylinder/remit.py:389
 #, python-format
 msgid "Invalid Action!"
 msgstr "¡Acción no permitida!"
@@ -627,9 +658,21 @@ msgid "Messages and communication history"
 msgstr "Historial de mensajes y comunicaciones"
 
 #. module: cylinder
+#: view:cylinder.remit.line_in:cylinder.view_movements_tree_in
+#: view:cylinder.remit.line_out:cylinder.view_movements_tree_out
+msgid "Movements"
+msgstr "Movimientos"
+
+#. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
 msgid "Movements Information"
 msgstr "Información de movimientos"
+
+#. module: cylinder
+#: view:cylinder.plant_remit.line_in:cylinder.view_plant_movements_tree_in
+#: view:cylinder.plant_remit.line_out:cylinder.view_plant_movements_tree_out
+msgid "Movements Plant"
+msgstr "Movimientos Planta"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
@@ -674,6 +717,16 @@ msgstr "Número"
 #: view:cylinder.remit:cylinder.view_remit_form
 msgid "Other Information"
 msgstr "Otra Información"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "Out to Client"
+msgstr "Salidas (R)"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "Out to Plant"
+msgstr "Salidas (P)"
 
 #. module: cylinder
 #: view:website:cylinder.external_layout_footer_extra
@@ -831,7 +884,11 @@ msgstr "Mes del Remito"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.view_plant_remit_tree
+#: view:cylinder.plant_remit.line_in:cylinder.view_plant_movements_tree_in
+#: view:cylinder.plant_remit.line_out:cylinder.view_plant_movements_tree_out
 #: view:cylinder.remit:cylinder.view_remit_tree
+#: view:cylinder.remit.line_in:cylinder.view_movements_tree_in
+#: view:cylinder.remit.line_out:cylinder.view_movements_tree_out
 msgid "Remit Number"
 msgstr "Numero de Remito"
 
@@ -950,6 +1007,13 @@ msgid "Summary"
 msgstr "Resumen"
 
 #. module: cylinder
+#: sql_constraint:cylinder.cylinders:0
+msgid "The number must be unique!.\n"
+"This number already exists."
+msgstr "The number must be unique!.\n"
+"This number already exists."
+
+#. module: cylinder
 #: field:cylinder.cylinders,gas_id:0
 msgid "Type of Gas"
 msgstr "Tipo de Gas"
@@ -983,10 +1047,10 @@ msgid "Yes"
 msgstr "Si"
 
 #. module: cylinder
-#: code:addons/cylinder/plant_remit.py:225
-#: code:addons/cylinder/plant_remit.py:317
-#: code:addons/cylinder/remit.py:338
-#: code:addons/cylinder/remit.py:436
+#: code:addons/cylinder/plant_remit.py:232
+#: code:addons/cylinder/plant_remit.py:331
+#: code:addons/cylinder/remit.py:290
+#: code:addons/cylinder/remit.py:389
 #, python-format
 msgid "You can not remove a cylinder remit line.\n"
 "Discard changes and try again."

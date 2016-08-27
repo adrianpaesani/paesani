@@ -41,6 +41,11 @@ class Cylinder(models.Model):
 	# Extras
 	days_rented = fields.Float(digits=(6,2), compute='_calculation', store=True)
 
+	_sql_constraints = [
+		('number_unique',
+			'UNIQUE(number)',
+			"The number must be unique!.\nThis number already exists."),
+		]
 
 	@api.depends('last_rental_date')
 	def _calculation(self):
