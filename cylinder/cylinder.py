@@ -10,7 +10,7 @@ from datetime import timedelta
 class Cylinder(models.Model):
 	_name = 'cylinder.cylinders'
 	_rec_name = 'number'
-	_order = 'number desc, id desc'
+	_order = 'gas_id desc, number desc, id desc'
 
 	# Cylinder Info
 	number = fields.Char('Cylinder Number', required=True)
