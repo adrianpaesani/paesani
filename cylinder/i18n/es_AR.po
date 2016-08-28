@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-27 07:15+0000\n"
-"PO-Revision-Date: 2016-08-27 07:15+0000\n"
+"POT-Creation-Date: 2016-08-28 15:33+0000\n"
+"PO-Revision-Date: 2016-08-28 15:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -114,6 +114,11 @@ msgstr "ENTRADA"
 #: view:website:cylinder.report_remit_view
 msgid "CYLINDERS OUT"
 msgstr "SALIDA"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Can be rented"
+msgstr "Puede ser alquilado"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.plant_remit_form_view
@@ -237,6 +242,7 @@ msgstr "Referencia de Cliente"
 
 #. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
 #: field:cylinder.plant_remit.line_in,cylinder_id:0
 #: field:cylinder.plant_remit.line_out,cylinder_id:0
 #: field:cylinder.remit.line_in,cylinder_id:0
@@ -253,13 +259,14 @@ msgstr "Listado de Cilindros"
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
 #: field:cylinder.cylinders,number:0
 msgid "Cylinder Number"
-msgstr "Número de Cilindro"
+msgstr "Numero de Cilindro"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.plant_remit_form_view
 #: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
 #: view:cylinder.plant_remit:cylinder.view_plant_remit_tree
 #: selection:cylinder.plant_remit,state:0
+#: model:ir.model,name:cylinder.model_cylinder_plant_remit
 msgid "Cylinder Plant Remit"
 msgstr "Remito de Planta"
 
@@ -294,18 +301,19 @@ msgstr "Remitos de Planta"
 #: view:cylinder.remit:cylinder.view_remit_form
 #: view:cylinder.remit:cylinder.view_remit_tree
 #: selection:cylinder.remit,state:0
+#: model:ir.model,name:cylinder.model_cylinder_remit
 msgid "Cylinder Remit"
 msgstr "Remito de Cilindro"
-
-#. module: cylinder
-#: model:ir.model,name:cylinder.model_cylinder_remit_line_in
-msgid "Cylinder Remit Line In"
-msgstr "Remito Línea de Entrada"
 
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_out
 msgid "Cylinder Remit Line Out"
 msgstr "Remito Linea Salida"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_remit_line_in
+msgid "Cylinder Remit Line in"
+msgstr "Remito Linea Entrada"
 
 #. module: cylinder
 #: model:ir.actions.act_window,name:cylinder.action_cylinder_remit_list_in
@@ -531,6 +539,11 @@ msgid "If checked new messages require your attention."
 msgstr "Si está marcado necesita su atención."
 
 #. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "In Plant"
+msgstr "En Planta"
+
+#. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
 msgid "In from Client"
 msgstr "Entradas (R)"
@@ -552,6 +565,11 @@ msgid "Invalid Action!"
 msgstr "¡Acción no permitida!"
 
 #. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Is Active"
+msgstr "Activo"
+
+#. module: cylinder
 #: field:cylinder.plant_remit,message_is_follower:0
 #: field:cylinder.remit,message_is_follower:0
 msgid "Is a Follower"
@@ -561,6 +579,11 @@ msgstr "Es un seguidor"
 #: field:cylinder.cylinders,rental:0
 msgid "Is active for Rent"
 msgstr "Disponible para alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Is in Plant"
+msgstr "Is in Plant"
 
 #. module: cylinder
 #: field:cylinder.cylinders,plant:0
@@ -694,6 +717,11 @@ msgid "New"
 msgstr "Nuevo"
 
 #. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Not Active"
+msgstr "Inactivo"
+
+#. module: cylinder
 #: field:cylinder.plant_remit,note:0
 #: field:cylinder.remit,note:0
 msgid "Notes"
@@ -756,11 +784,6 @@ msgstr "Planta"
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
 msgid "Plant Arrival Detail"
 msgstr "Detalle de Ingreso de Planta"
-
-#. module: cylinder
-#: model:ir.model,name:cylinder.model_cylinder_remit
-msgid "Plant Remit"
-msgstr "Remito de Planta"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.plant_remit_form_view
@@ -929,6 +952,11 @@ msgstr "Remitos de Entrada/Salida"
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
 msgid "Rental Information"
 msgstr "Información de Alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Rented"
+msgstr "Alquilado"
 
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.plant_remit_form_view

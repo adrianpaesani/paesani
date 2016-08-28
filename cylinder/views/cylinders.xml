@@ -63,15 +63,24 @@
             <field name="name">cylinder.search</field>
             <field name="model">cylinder.cylinders</field>
             <field name="arch" type="xml">
-                <search>
+                <search string="Cylinder">
                     <field name="number" string="Number"/>
                     <field name="propietary_id" string="Propietary"/>
                     <field name="gas_id" string="Gas Type"/>
                     <field name="partner_id" string="Partner"/>
+                    <separator />
+                    <filter string="Can be rented" name="filter_to_rent" icon="terp-accessories-archiver-minus" domain="[('rental','=',1)]"/>
+                    <filter string="Rented" name="filter_rented" icon="terp-accessories-archiver-minus" domain="[('rented','=',1)]"/>
+                    <filter string="Is in Plant" name="filter_rented" icon="terp-accessories-archiver-minus" domain="[('plant','=',1)]"/>
+                    <filter string="Is Active" name="filter_active" icon="terp-accessories-archiver-minus" domain="[('active','=',1)]"/>
+                    <filter string="Not Active" name="filter_not_active" icon="terp-accessories-archiver-minus" domain="[('active','=',0)]"/>
+                    <separator />
                     <group expand="0" string="Group by ...">
                         <filter name="group_by_gas" string="Gas Type" domain="[]" context="{'group_by' : 'gas_id'}"/>
                         <filter name="group_by_propietary" string="Propietary" domain="[]" context="{'group_by' : 'propietary_id'}"/>
                         <filter name="group_by_partner" string="Partner" domain="[]" context="{'group_by' : 'partner_id'}"/>
+                        <filter name="group_by_rented" string="Rented" domain="[('rented','=',1)]"/>
+                        <filter name="group_by_plant" string="In Plant" domain="[('plant','=',1)]"/>
                     </group>
                 </search>
             </field>
