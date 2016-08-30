@@ -22,7 +22,7 @@
 
 {
     'name': 'Cylinders',
-    'version': '0.6',
+    'version': '0.7',
     'author': 'Adrian Paesani',
     'category': 'Cylinder Management',
     'demo': [
@@ -50,6 +50,7 @@ Cylinders support tracking by number, different types of gases, owner informatio
         'views/cylinders.xml',
         'views/gases.xml',
         'views/capacity.xml',
+        'views/codes.xml',
         'views/plant_remit.xml',
         'views/cylinder_remit.xml',
         # 'data/mail_template_data.xml',

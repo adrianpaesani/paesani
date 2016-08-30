@@ -27,8 +27,8 @@
                                     <field name="cap" string="Has cap?"/>
                                 </group>
                                 <group colspan="4">
-                                    <field name="gas_id" string="Gas Type"/>
-                                    <field name="capacity_id" string="Capacity"/>
+                                    <field name="gas_id" string="Gas Type" />
+                                    <field name="capacity_id" string="Capacity" />
                                     <field name="propietary_id" string="Propietary"/>
                                 </group>
                             </page>
@@ -101,6 +101,7 @@
                     <field name="rented"/>
                     <field name="capacity_id"/>
                     <field name="days_rented"/>
+                    <field name="days_plant"/>
                 </tree>
             </field>
         </record>

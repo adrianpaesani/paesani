@@ -172,7 +172,7 @@ class CylinderRemit(models.Model):
 	def action_confirm(self):
 		for remit in self:
 			remit.state = 'remit'
-			if self.env.context.get('senf_email'):
+			if self.env.context.get('send_email'):
 				self.force_remit_send()
 		if self.env['ir.values'].get_default('cylinder.config.settings', 'auto_done_settings'):
 			self.action_done()

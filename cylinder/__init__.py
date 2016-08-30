@@ -24,6 +24,7 @@ from . import gas
 from . import capacity
 from . import plant_remit
 from . import remit
+from . import codes
 #import cylinder
 #import report
 #import partner

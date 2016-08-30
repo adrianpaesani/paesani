@@ -41,6 +41,8 @@ class Cylinder(models.Model):
 	# Extras
 	days_rented = fields.Float(digits=(6,2), compute='_calculation', store=True)
 
+	days_plant = fields.Float(digits=(6,2), compute='_calculation_from_plant', store=True)
+
 	_sql_constraints = [
 		('number_unique',
 			'UNIQUE(number)',
@@ -56,3 +58,13 @@ class Cylinder(models.Model):
 				start_date = fields.Datetime.from_string(r.last_rental_date)
 				end_date = fields.Datetime.from_string(fields.Date.today())
 				r.days_rented = (end_date - start_date).days + 1
+
+	@api.depends('plant_arrival_date')
+	def _calculation_from_plant(self):
+		for r in self:
+			if not r.plant_arrival_date:
+				r.days_plant = 0
+			else:
+				start_date = fields.Datetime.from_string(r.plant_arrival_date)
+				end_date = fields.Datetime.from_string(fields.Date.today())
+				r.days_plant = (end_date - start_date).days + 1

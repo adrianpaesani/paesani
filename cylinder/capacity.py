@@ -9,3 +9,8 @@ class Capacity(models.Model):
 	_order = 'name desc, id desc'
 
 	name = fields.Char('Name', required=True)
+	code_id = fields.Many2one(
+		'cylinder.codes',
+		'Capacity Code',
+		)
+	gases_id = fields.Many2one('cylinder.gases', 'Gas')
