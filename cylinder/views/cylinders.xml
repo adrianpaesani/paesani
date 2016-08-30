@@ -90,7 +90,7 @@
             <field name="name">cylinder.tree</field>
             <field name="model">cylinder.cylinders</field>
             <field name="arch" type="xml">
-                <tree string="Cylinders Tree">
+                <tree string="Cylinders Tree" colors="red:days_rented&gt;340;blue:days_rented&gt;91">
                     <field name="number"/>
                     <field name="propietary_id"/>
                     <field name="partner_id"/>
