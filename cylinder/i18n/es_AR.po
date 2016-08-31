@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-30 04:20+0000\n"
-"PO-Revision-Date: 2016-08-30 04:20+0000\n"
+"POT-Creation-Date: 2016-08-31 23:05+0000\n"
+"PO-Revision-Date: 2016-08-31 23:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,7 @@ msgstr "Cancelado"
 #: field:cylinder.plant_remit.line_out,cap:0
 #: field:cylinder.remit.line_in,cap:0
 #: field:cylinder.remit.line_out,cap:0
+#: view:website:cylinder.report_cylinderlist
 msgid "Cap"
 msgstr "Tapa/Tulipa"
 
@@ -161,6 +162,7 @@ msgstr "Tapa/Tulipa"
 #: field:cylinder.remit.line_out,cylinder_capacity:0
 #: model:ir.actions.act_window,name:cylinder.capacities_list_action
 #: model:ir.ui.menu,name:cylinder.capacity_menu
+#: view:website:cylinder.report_cylinderlist
 #: view:website:cylinder.report_plant_remit_view
 #: view:website:cylinder.report_remit_view
 msgid "Capacity"
@@ -174,7 +176,7 @@ msgstr "Código de Capacidad"
 #. module: cylinder
 #: view:cylinder.codes:cylinder.codes_form_view
 msgid "Capacity Code Form"
-msgstr "Formulatio de Código de Capacidad"
+msgstr "Formulario de Código de Capacidad"
 
 #. module: cylinder
 #: model:ir.ui.menu,name:cylinder.capacity_codes_menu
@@ -284,6 +286,7 @@ msgid "Cylinder"
 msgstr "Cilindro"
 
 #. module: cylinder
+#: model:ir.actions.report.xml,name:cylinder.report_cylinder_list
 #: model:ir.ui.menu,name:cylinder.cylinder_list_menu
 msgid "Cylinder List"
 msgstr "Listado de Cilindros"
@@ -339,7 +342,7 @@ msgstr "Remito de Cilindro"
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_in
 msgid "Cylinder Remit Line In"
-msgstr "Línea de Remito de Entrada"
+msgstr "Línea de Entrada de Remito"
 
 #. module: cylinder
 #: model:ir.model,name:cylinder.model_cylinder_remit_line_out
@@ -509,6 +512,7 @@ msgstr "Tipo de Gas"
 #: view:cylinder.remit:cylinder.view_remit_form
 #: field:cylinder.remit.line_in,cylinder_gas:0
 #: field:cylinder.remit.line_out,cylinder_gas:0
+#: view:website:cylinder.report_cylinderlist
 #: view:website:cylinder.report_plant_remit_view
 #: view:website:cylinder.report_remit_view
 msgid "Gas Type"
@@ -601,7 +605,7 @@ msgstr "Entradas (P)"
 #: code:addons/cylinder/plant_remit.py:331
 #: code:addons/cylinder/remit.py:55
 #: code:addons/cylinder/remit.py:290
-#: code:addons/cylinder/remit.py:389
+#: code:addons/cylinder/remit.py:391
 #, python-format
 msgid "Invalid Action!"
 msgstr "¡Acción no permitida!"
@@ -780,6 +784,7 @@ msgstr "Notas:"
 
 #. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: view:website:cylinder.report_cylinderlist
 #: view:website:cylinder.report_plant_remit_view
 #: view:website:cylinder.report_remit_view
 msgid "Number"
@@ -811,6 +816,7 @@ msgstr "Página:"
 #: view:cylinder.cylinders:cylinder.cylinder_search_view
 #: field:cylinder.cylinders,last_rent_partner_id:0
 #: field:cylinder.cylinders,partner_id:0
+#: view:website:cylinder.report_cylinderlist
 msgid "Partner"
 msgstr "Cliente"
 
@@ -887,6 +893,7 @@ msgstr "Imprimir"
 #: view:cylinder.remit:cylinder.view_remit_form
 #: field:cylinder.remit.line_in,cylinder_owner_id:0
 #: field:cylinder.remit.line_out,cylinder_owner_id:0
+#: view:website:cylinder.report_cylinderlist
 #: view:website:cylinder.report_plant_remit_view
 #: view:website:cylinder.report_remit_view
 msgid "Propietary"
@@ -915,9 +922,13 @@ msgstr "Fecha de Recepción: ....../....../.........."
 #. module: cylinder
 #: model:ir.actions.report.xml,name:cylinder.report_plant_remit
 #: model:ir.actions.report.xml,name:cylinder.report_remit
-#: model:ir.ui.menu,name:cylinder.remit_menu
 msgid "Remit"
 msgstr "Remito"
+
+#. module: cylinder
+#: model:ir.ui.menu,name:cylinder.remit_menu
+msgid "Remit"
+msgstr "Remitos de Cliente E/S"
 
 #. module: cylinder
 #: field:cylinder.plant_remit,date_remit:0
@@ -989,14 +1000,23 @@ msgstr "Estado"
 #. module: cylinder
 #: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
 #: view:cylinder.remit:cylinder.view_cylinder_remit_filter
-#: model:ir.ui.menu,name:cylinder.remits_menu
 msgid "Remits"
 msgstr "Remitos"
 
 #. module: cylinder
+#: model:ir.ui.menu,name:cylinder.remits_menu
+msgid "Remits"
+msgstr "Movimientos"
+
+#. module: cylinder
 #: model:ir.ui.menu,name:cylinder.plant_remits_menu
 msgid "Remits In/Out"
-msgstr "Remitos de Entrada/Salida"
+msgstr "Remitos de Planta E/S"
+
+#. module: cylinder
+#: view:website:cylinder.report_cylinderlist
+msgid "Rent Date"
+msgstr "F. Alquiler"
 
 #. module: cylinder
 #: view:cylinder.cylinders:cylinder.cylinder_form_view
@@ -1119,6 +1139,7 @@ msgid "User:"
 msgstr "Usuario:"
 
 #. module: cylinder
+#: view:website:cylinder.report_cylinderlist
 #: view:website:cylinder.report_plant_remit_view
 #: view:website:cylinder.report_remit_view
 msgid "Yes"
@@ -1128,7 +1149,7 @@ msgstr "Si"
 #: code:addons/cylinder/plant_remit.py:232
 #: code:addons/cylinder/plant_remit.py:331
 #: code:addons/cylinder/remit.py:290
-#: code:addons/cylinder/remit.py:389
+#: code:addons/cylinder/remit.py:391
 #, python-format
 msgid "You can not remove a cylinder remit line.\n"
 "Discard changes and try again."

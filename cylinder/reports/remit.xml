@@ -25,9 +25,9 @@
         <field name="dpi">90</field>
     </record>
 
-        <record id="report_remit" model="ir.actions.report.xml">
-            <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
-        </record>
+    <record id="report_remit" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
+    </record>
 
     <template id="report_remit_view">
         <!-- <t t-call="report.html_container"> -->

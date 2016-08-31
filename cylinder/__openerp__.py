@@ -46,6 +46,8 @@ Cylinders support tracking by number, different types of gases, owner informatio
         'reports/remit.xml',
         'reports/plant_remit_report.xml',
         'reports/external_layout_extra.xml',
+        'views/report_cylinderlist.xml',
+        'reports/cylinder_report.xml',
         'remit_sequence.xml',
         'views/cylinders.xml',
         'views/gases.xml',

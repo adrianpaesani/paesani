@@ -97,7 +97,6 @@
                     <field name="last_rental_date"/>
                     <field name="gas_id"/>
                     <field name="plant"/>
-                    <field name="rental"/>
                     <field name="rented"/>
                     <field name="capacity_id"/>
                     <field name="days_rented"/>

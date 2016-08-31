@@ -9,9 +9,9 @@
         file="cylinder.report_plant_remit"
         report_type="qweb-pdf" />
 
-        <record id="report_plant_remit" model="ir.actions.report.xml">
-            <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
-        </record>
+    <record id="report_plant_remit" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
+    </record>
 
     <template id="report_plant_remit_view">
         <!-- <t t-call="report.html_container"> -->
