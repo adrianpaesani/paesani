@@ -379,7 +379,7 @@ class CylinderRemitLineIn(models.Model):
 		for record in cylinder_ids:
 			record.write({'rented': False})
 			record.write({'last_return_date': date_remit})
-			record.write({'partner_id': partner_id})
+			record.write({'last_rent_partner_id': partner_id})
 
 		return
 
