@@ -378,6 +378,7 @@ class CylinderRemitLineIn(models.Model):
 
 		for record in cylinder_ids:
 			record.write({'rented': False})
+			record.write({'partner_id': None})
 			record.write({'last_rental_date': None})
 			record.write({'last_return_date': date_remit})
 			record.write({'last_rent_partner_id': partner_id})
