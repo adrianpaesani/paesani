@@ -1,3 +1,9 @@
 - Add locations for cylinders
 -- Form for locations
 -- Movements from location to location
+
+- Invoice Rent Cylinders
+-- Add new field for last date invoiced
+-- Link with invoices for Rent item
+-- Generate new product for invoice rental
+-- Link product generated with rental days
