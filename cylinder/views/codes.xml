@@ -35,10 +35,8 @@
                 </p>
             </field>
         </record>
-
-        <menuitem id="codes_menu" name="Capacity Codes" parent="main_cylinders_menu"/>
         
-        <menuitem id="capacity_codes_menu" name="Capacity Codes" parent="cylinder_menu" action="codes_list_action"/>
+        <menuitem id="capacity_codes_menu" name="Capacity Codes" parent="cylinders_config_menu" action="codes_list_action"/>
 
     </data>
 </openerp>

@@ -14,5 +14,19 @@
 			<field name="padding">10</field>
 			<field name="company_id" eval="False" />
 		</record>
+
+		<!-- Sequences for cylinder.transfer -->
+		<record id="seq_type_cylinder_transfer" model="ir.sequence.type">
+			<field name="name">Cylinder Transfers</field>
+			<field name="code">cylinder.transfer</field>
+		</record>
+
+		<record id="seq_cylinder_transfer" model="ir.sequence">
+			<field name="name">Cylinder Transfers</field>
+			<field name="code">cylinder.transfer</field>
+			<field name="prefix">CT</field>
+			<field name="padding">10</field>
+			<field name="company_id" eval="False" />
+		</record>
 	</data>
 </openerp>

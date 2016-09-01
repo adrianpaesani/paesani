@@ -123,6 +123,10 @@
             <group>
               <field name="date_remit" />
             </group>
+            <group>
+              <field name="location_out_id" options='{"always_reload": True}' attrs="{'readonly': [('state', 'in', ('remit','done','cancel'))]}" required="True"/>
+              <field name="location_in_id" options='{"always_reload": True}' attrs="{'readonly': [('state', 'in', ('remit','done','cancel'))]}" required="True"/>
+            </group>
           </group>
           <notebook>
             <page string="Remit Lines">
@@ -147,6 +151,7 @@
                   <field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+                  <field name="charge_status" string="Status" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
                   <field name="state" invisible="1" />
                 </tree>
@@ -166,12 +171,14 @@
                   <field name="state" invisible="1" />
                 </form>
                 <strong>Entrada</strong>
+                <field name="location_in_id"/>
                 <tree string="Plant Remit Lines In" editable="bottom" >
                   <field name="sequence" widget="handle" />
                   <field name="cylinder_id" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cylinder_gas" string="Gas Type" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cylinder_capacity" string="Capacity" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cylinder_owner_id" string="Propietary" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+                  <field name="charge_status" string="Status" context="{'partner_id':parent.partner_id, 'gas':cylinder_gas,'capacity':cylinder_capacity}" />
                   <field name="cap" attrs="{'readonly': [('state', 'in', ('rent','done','cancel'))]}" />
                   <field name="state" invisible="1" />
                 </tree>
@@ -299,9 +306,7 @@
       </field>
     </record>
 
-    <menuitem id="plant_remits" name="Plant" parent="main_cylinders_menu" />
-
-    <menuitem id="plant_remits_menu" name="Remits In/Out" parent="plant_remits" action="action_plant_remits" />        
+    <menuitem id="plant_remits_menu" name="Remits In/Out" parent="plant_remits" action="action_plant_remits" sequence="10" />
 
     </data>
 </openerp>

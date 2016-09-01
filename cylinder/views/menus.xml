@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<menuitem id="main_cylinders_menu" name="Cylinders" sequence="1"/>
+    	
+    	<menuitem id="cylinder_menu" name="Main" parent="main_cylinders_menu" sequence="1"/>
+
+    	<menuitem id="remits_menu" name="Remits" parent="main_cylinders_menu" sequence="2" />
+    	<menuitem id="plant_remits" name="Plant" parent="main_cylinders_menu" sequence="3" />
+
+		<menuitem id="cylinders_config_menu" name="Configuration" parent="main_cylinders_menu" sequence="4"/>
+    	<menuitem id="gas_menu" name="Gases" parent="cylinders_config_menu" sequence="1"/>
+    	<menuitem id="codes_menu" name="Capacity Codes" parent="cylinders_config_menu" sequence="2"/>
+    	<menuitem id="capacity_menu" name="Capacity" parent="cylinders_config_menu" sequence="3"/>
+    	<menuitem id="location_menu" name="Locations" parent="cylinders_config_menu" sequence="4"/>
+
+    </data>
+</openerp>

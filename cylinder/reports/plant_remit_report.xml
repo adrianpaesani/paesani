@@ -59,14 +59,16 @@
                                         <th style="width:10%;text-align: left;border: 1px solid;">Number</th>
                                         <th style="width:20%;text-align: left;border: 1px solid;">Gas Type</th>
                                         <th style="width:10%;text-align: left;border: 1px solid;">Capacity</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Status</th>
                                         <th style="width:10%;text-align: left;border: 1px solid;">Has Cap</th>
-                                        <th style="width:50%;text-align: left;border: 1px solid;">Propietary</th>
+                                        <th style="width:40%;text-align: left;border: 1px solid;">Propietary</th>
                                     </tr>
                                     <tbody>
                                         <tr class="row" t-foreach="doc.plant_remit_line_out" t-as="cio">
                                             <td><span t-field="cio.cylinder_id"/></td>
                                             <td><span t-field="cio.cylinder_gas"/></td>
                                             <td><span t-field="cio.cylinder_capacity"/></td>
+                                            <td><span t-field="cio.charge_status"/></td>
                                             <!-- <td><span t-field="cio.cap"/></td> -->
                                             <td t-if="cio.cap == True">Yes</td>
                                             <td t-if="cio.cap == False">No</td>
@@ -89,14 +91,16 @@
                                         <th style="width:10%;text-align: left;border: 1px solid;">Number</th>
                                         <th style="width:20%;text-align: left;border: 1px solid;">Gas Type</th>
                                         <th style="width:10%;text-align: left;border: 1px solid;">Capacity</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Status</th>
                                         <th style="width:10%;text-align: left;border: 1px solid;">Has Cap</th>
-                                        <th style="width:50%;text-align: left;border: 1px solid;">Propietary</th>
+                                        <th style="width:40%;text-align: left;border: 1px solid;">Propietary</th>
                                     </tr>
                                     <tbody>
                                         <tr class="row" t-foreach="doc.plant_remit_line_in" t-as="cin">
                                             <td><span t-field="cin.cylinder_id"/></td>
                                             <td><span t-field="cin.cylinder_gas"/></td>
                                             <td><span t-field="cin.cylinder_capacity"/></td>
+                                            <td><span t-field="cin.charge_status"/></td>
                                             <!-- <td><span t-field="cin.cap"/></td> -->
                                             <td t-if="cin.cap == True">Yes</td>
                                             <td t-if="cin.cap == False">No</td>

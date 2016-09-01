@@ -44,6 +44,9 @@ class CylinderRemit(models.Model):
 	cylinder_out_id = fields.Many2one('cylinder.cylinders', related='remit_line_out.cylinder_id', string='Cylinder Out')
 	cylinder_in_id = fields.Many2one('cylinder.cylinders', related='remit_line_in.cylinder_id', string='Cylinder In')
 
+	location_out_id = fields.Many2one('cylinder.locations', string='Location Out', readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, change_default=True, index=True, track_visibility='always')
+	location_in_id = fields.Many2one('cylinder.locations', string='Location In', readonly=True, states={'draft': [('readonly', False)], 'sent': [('readonly', False)]}, change_default=True, index=True, track_visibility='always')
+
 	@api.multi
 	def button_dummy(self):
 		return True
@@ -165,8 +168,8 @@ class CylinderRemit(models.Model):
 		self.write({'state': 'done'})
 
 		for remit in self:
-			remit.remit_line_out._action_status_done(self.date_remit, self.partner_id.id)
-			remit.remit_line_in._action_status_done(self.date_remit, self.partner_id.id)
+			remit.remit_line_out._action_status_done(self.date_remit, self.partner_id.id, self.location_out_id.id)
+			remit.remit_line_in._action_status_done(self.date_remit, self.partner_id.id, self.location_in_id.id)
 
 	@api.multi
 	def action_confirm(self):
@@ -221,6 +224,11 @@ class CylinderRemitLineOut(models.Model):
 	cylinder_gas = fields.Many2one('cylinder.gases', string='Gas Type', required=True, readonly=False)
 	cylinder_capacity = fields.Many2one('cylinder.capacity', string='Capacity', required=True, readonly=False)
 	cylinder_owner_id = fields.Many2one('res.partner', string='Propietary')
+	charge_status = fields.Selection([
+		('full', 'Full'),
+		('empty', 'Empty'),
+		('half', 'Half Charge'),
+		], string='Cylinder Status', copy=False, store=True, default='full')
 	cap = fields.Boolean()
 
 	user_id = fields.Many2one(related='remit_id.user_id', store=True, string='User', readonly=True)
@@ -264,13 +272,15 @@ class CylinderRemitLineOut(models.Model):
 		return {'domain': domain}
 
 	@api.multi
-	def _action_status_done(self, date_remit, partner_id):
+	def _action_status_done(self, date_remit, partner_id, location_id):
 
 		cylinder_numbers = []
 		cylinder_ids = []
+		cylinder_status = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
 			cylinder_numbers.append(item.cylinder_id.number)
+			cylinder_status.append(item.charge_status)
 
 		for each in cylinder_numbers:
 			count = cylinder_numbers.count(each)
@@ -281,6 +291,12 @@ class CylinderRemitLineOut(models.Model):
 			record.write({'rented': True})
 			record.write({'last_rental_date': date_remit})
 			record.write({'partner_id': partner_id})
+			record.write({'location_id': location_id})
+
+		# Create a dictionary to set the value of cylinder status and avoid errors
+		cyls_status = zip(cylinder_ids,cylinder_status)
+		for i,v in dict(cyls_status).iteritems():
+			i.write({'charge_status': v})
 
 		return
 
@@ -320,7 +336,13 @@ class CylinderRemitLineIn(models.Model):
 	cylinder_gas = fields.Many2one('cylinder.gases', string='Gas Type', required=True, readonly=False)
 	cylinder_capacity = fields.Many2one('cylinder.capacity', string='Capacity', required=True, readonly=False)
 	cylinder_owner_id = fields.Many2one('res.partner', string='Propietary')
+	charge_status = fields.Selection([
+		('full', 'Full'),
+		('empty', 'Empty'),
+		('half', 'Half Charge'),
+		], string='Cylinder Status', copy=False, store=True, default='empty')
 	cap = fields.Boolean()
+	days_rented = fields.Integer('Days Rented')
 
 	user_id = fields.Many2one(related='remit_id.user_id', store=True, string='User', readonly=True)
 	company_id = fields.Many2one(related='remit_id.company_id', string='Company', store=True, readonly=True)
@@ -358,18 +380,21 @@ class CylinderRemitLineIn(models.Model):
 		self.cylinder_gas = cylinder.gas_id
 		self.cylinder_capacity = cylinder.capacity_id
 		self.cylinder_owner_id = cylinder.propietary_id.id
+		self.days_rented = ((fields.Datetime.from_string(fields.Date.today()) - fields.Datetime.from_string(cylinder.last_rental_date))).days + 1
 		self.cap = cylinder.cap
 
 		return {'domain': domain}
 
 	@api.multi
-	def _action_status_done(self, date_remit, partner_id):
+	def _action_status_done(self, date_remit, partner_id, location_id):
 
 		cylinder_numbers = []
 		cylinder_ids = []
+		cylinder_status = []
 		for item in self:
 			cylinder_ids.append(item.cylinder_id)
 			cylinder_numbers.append(item.cylinder_id.number)
+			cylinder_status.append(item.charge_status)
 
 		for each in cylinder_numbers:
 			count = cylinder_numbers.count(each)
@@ -382,6 +407,12 @@ class CylinderRemitLineIn(models.Model):
 			record.write({'last_rental_date': None})
 			record.write({'last_return_date': date_remit})
 			record.write({'last_rent_partner_id': partner_id})
+			record.write({'location_id': location_id})
+
+		# Create a dictionary to set the value of cylinder status and avoid errors
+		cyls_status = zip(cylinder_ids,cylinder_status)
+		for i,v in dict(cyls_status).iteritems():
+			i.write({'charge_status': v})
 
 		return
 

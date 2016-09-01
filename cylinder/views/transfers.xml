@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+        
+		<record id="view_cylinder_transfer" model="ir.ui.view">
+			<field name="name">cylinder.transfer.calendar</field>
+			<field name="model">cylinder.transfer</field>
+			<field name="arch" type="xml">
+				<calendar string="Cylinder Transfers" color="state" date_start="date_transfer">
+					<field name="location_id" />
+				</calendar>
+			</field>
+		</record>
+
+		<record id="view_transfer_tree" model="ir.ui.view">
+			<field name="name">cylinder.transfer.tree</field>
+			<field name="model">cylinder.transfer</field>
+			<field name="priority">2</field>
+			<field name="arch" type="xml">
+				<tree string="Cylinder Transfer">
+					<!-- <field name="message_needaction" invisible="1" /> -->
+					<field name="name" string="Transfer Number" />
+					<field name="date_transfer" />
+					<field name="location_id" />
+					<field name="user_id" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_transfer_form" model="ir.ui.view">
+			<field name="name">cylinder.transfer.form</field>
+			<field name="model">cylinder.transfer</field>
+			<field name="arch" type="xml">
+				<form string="Cylinder Transfer">
+				<header>
+					<!-- <button name="action_remit_send" string="Send by Email" type="object" states="draft" class="btn-primary" />
+					<button name="action_remit_send" string="Send by Email" type="object" states="sent,transfer" /> -->
+					<button name="print_transfer" string="Print" type="object" states="done" class="btn-primary" />
+					<button name="action_confirm" states="sent" string="Confirm Transfer" class="btn-primary" type="object" />
+					<button name="action_confirm" states="draft" string="Confirm Transfer" type="object" />
+					<button name="action_cancel" states="draft,sent,transfer" type="object" string="Cancel" />
+					<button name="action_draft" states="cancel" type="object" string="Set to Transfer" />
+					<button name="action_done" type="object" string="Set to Done" states="transfer" help="If a transfer is done, you cannot modify it manually anymore. However, you will still be able to done. This is used to freeze the transfer." />
+					<field name="state" widget="statusbar" statusbar_visible="draft,sent,transfer,done" />
+				</header>
+				<sheet>
+					<div class="oe_title">
+						<h1>
+							<field name="name" readonly="1" />
+						</h1>
+					</div>
+					<group>
+						<group>
+							<field name="location_id" options='{"always_reload": True}' />
+						</group>
+						<group>
+							<field name="date_transfer" />
+						</group>
+					</group>
+					<notebook>
+						<page string="Transfer Lines">
+							<field name="transfer_line" mode="tree" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+								<form string="Transfer Lines">
+									<group>
+										<group>
+											<field name="cylinder_id" context="{'gas':cylinder_gas,'capacity':cylinder_capacity,'cap':cap}" />
+											<!-- <field  /> -->
+											<div>
+												<field context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" name="cylinder_gas" class="oe_inline" />
+												<field name="cylinder_gas" groups="cylinder.gases" class="oe_inline oe_no_button" attrs="{'readonly': [('state', 'in', ('transfer','done','cancel'))]}" />
+											</div>
+										</group>
+									</group>
+									<field name="state" invisible="1" />
+								</form>
+								<tree string="Transfer Lines" editable="bottom" >
+									<field name="sequence" widget="handle" />
+									<field name="cylinder_id" context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_gas" string="Gas Type" context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_capacity" string="Capacity" context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cylinder_owner_id" string="Propietary" context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="charge_status" string="Status" context="{'gas':cylinder_gas,'capacity':cylinder_capacity}" />
+									<field name="cap" attrs="{'readonly': [('state', 'in', ('transfer','done','cancel'))]}" />
+									<field name="state" invisible="1" />
+								</tree>
+							</field>
+							<field name="note" class="oe_inline" placeholder="Setup notes." />
+							<div class="oe_clear" />
+						</page>
+						<page string="Other Information">
+							<group>
+								<group string="Remit Information" name="sales_person">
+									<field name="user_id" />
+									<field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+								</group>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" />
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_cylinder_transfer_filter" model="ir.ui.view">
+			<field name="name">cylinder.transfer.list.select</field>
+			<field name="model">cylinder.transfer</field>
+			<field name="arch" type="xml">
+				<search string="Search Cylinders Transfers">
+					<field name="name" string="Cylinder Transfer" filter_domain="['|',('name','ilike',self)]" />
+					<field name="location_id" operator="child_of" />
+					<field name="user_id" />
+					<filter string="My Transfers" domain="[('user_id','=',uid)]" name="my_cylinder_transfers_filter" />
+					<separator />
+					<filter string="Draft Transfers" name="draft" domain="[('state','in',('draft','sent'))]" help="Cylinder Transfers that haven't yet been confirmed" />
+					<filter string="Transfers" name="transfers" domain="[('state','in',('transfer','done'))]" />
+					<!-- <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]" /> -->
+					<group expand="0" string="Group by">
+						<filter string="Salesperson" domain="[]" context="{'group_by':'user_id'}"/>
+						<filter name="customer" string="Customer" domain="[]" context="{'group_by':'location_id'}"/>
+						<filter string="Transfer Month" domain="[]" context="{'group_by':'date_transfer'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="action_transfers" model="ir.actions.act_window">
+			<field name="name">Cylinder Transfers</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">cylinder.transfer</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
+			<field name="search_view_id" ref="view_cylinder_transfer_filter"/>
+			<field name="context">{}</field>
+			<field name="domain">[('state', 'in', ('draft', 'sent', 'transfer', 'done', 'cancel'))]</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Create a Transfer, the first step of a new transfer.
+				</p><p>
+					Your next action should flow efficiently: confirm the Transfer.
+				</p>
+			</field>
+		</record>
+
+		<menuitem id="transfer_menu" name="Transfers" parent="remits_menu" action="action_transfers" sequence="2" />
+
+	</data>
+</openerp>

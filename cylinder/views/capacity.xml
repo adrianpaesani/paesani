@@ -37,10 +37,8 @@
                 </p>
             </field>
         </record>
-
-        <menuitem id="capacity_menu" name="Capacity" parent="main_cylinders_menu"/>
         
-        <menuitem id="capacity_menu" name="Capacity" parent="cylinder_menu" action="capacities_list_action"/>
+        <menuitem id="capacity_menu" name="Capacity" parent="cylinders_config_menu" action="capacities_list_action" sequence="3"/>
 
     </data>
 </openerp>

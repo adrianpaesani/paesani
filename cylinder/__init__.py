@@ -25,6 +25,8 @@ from . import capacity
 from . import plant_remit
 from . import remit
 from . import codes
+from . import location
+from . import transfers
 #import cylinder
 #import report
 #import partner

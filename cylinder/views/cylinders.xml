@@ -25,6 +25,8 @@
                                     <field name="plant" string="Is in plant?"/>
                                     <field name="ht_date" string="Last Hidraulic Test"/>
                                     <field name="cap" string="Has cap?"/>
+                                    <field name="location_id" string="Location" />
+                                    <field name="charge_status" string="Charge Status" />
                                 </group>
                                 <group colspan="4">
                                     <field name="gas_id" string="Gas Type" />
@@ -79,8 +81,10 @@
                         <filter name="group_by_gas" string="Gas Type" domain="[]" context="{'group_by' : 'gas_id'}"/>
                         <filter name="group_by_propietary" string="Propietary" domain="[]" context="{'group_by' : 'propietary_id'}"/>
                         <filter name="group_by_partner" string="Partner" domain="[]" context="{'group_by' : 'partner_id'}"/>
-                        <filter name="group_by_rented" string="Rented" domain="[('rented','=',1)]"/>
-                        <filter name="group_by_plant" string="In Plant" domain="[('plant','=',1)]"/>
+                        <filter name="group_by_rented" string="Rented" domain="[]" context="{'group_by' : 'rented'}"/>
+                        <filter name="group_by_plant" string="Plant" domain="[]" context="{'group_by' : 'plant'}"/>
+                        <filter name="group_by_charge_status" string="Charge Status" domain="[]" context="{'group_by': 'charge_status'}"/>
+                        <filter name="group_by_location" string="Location" domain="[]" context="{'group_by': 'location_id'}" />
                     </group>
                 </search>
             </field>
@@ -99,6 +103,8 @@
                     <field name="plant"/>
                     <field name="rented"/>
                     <field name="capacity_id"/>
+                    <field name="location_id"/>
+                    <field name="charge_status"/>
                     <field name="days_rented"/>
                     <field name="days_plant"/>
                 </tree>
@@ -116,11 +122,7 @@
             </field>
         </record>
 
-        <menuitem id="main_cylinders_menu" name="Cylinders" sequence="3"/>
-
-        <menuitem id="cylinder_menu" name="Main" parent="main_cylinders_menu"/>
-
-        <menuitem id="cylinder_list_menu" name="Cylinder List" parent="cylinder_menu" action="cylinder_list_action"/>
+        <menuitem id="cylinder_list_menu" name="Cylinder List" parent="cylinder_menu" action="cylinder_list_action" sequence="1"/>
 
     </data>
 </openerp>

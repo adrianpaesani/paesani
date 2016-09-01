@@ -37,10 +37,8 @@
                 </p>
             </field>
         </record>
-
-        <menuitem id="gas_menu" name="Gases" parent="main_cylinders_menu"/>
         
-        <menuitem id="gases_menu" name="Gases" parent="cylinder_menu" action="gases_list_action"/>
+        <menuitem id="gases_menu" name="Gases" parent="cylinders_config_menu" action="gases_list_action" sequence="9"/>
 
     </data>
 </openerp>

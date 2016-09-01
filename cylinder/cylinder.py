@@ -22,6 +22,7 @@ class Cylinder(models.Model):
 	active = fields.Boolean('Active', default=True)
 	plant = fields.Boolean('Is in plant', default=True)
 	ht_date = fields.Date('Last Hidraulic Test')
+	location_id = fields.Many2one('cylinder.locations', string='Location')
 	# Rental Info
 	rental = fields.Boolean('Is active for Rent', default=True)
 	rented = fields.Boolean(string="Is rented", default=False)
@@ -42,6 +43,12 @@ class Cylinder(models.Model):
 	days_rented = fields.Float(digits=(6,2), compute='_calculation', store=True)
 
 	days_plant = fields.Float(digits=(6,2), compute='_calculation_from_plant', store=True)
+
+	charge_status = fields.Selection([
+		('full', 'Full'),
+		('empty', 'Empty'),
+		('half', 'Half Charge'),
+		], string='Cylinder Status', copy=False, store=True, default='full')
 
 	_sql_constraints = [
 		('number_unique',

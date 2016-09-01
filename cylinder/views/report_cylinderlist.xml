@@ -7,7 +7,7 @@
             <div class="oe_structure">
                 <div class="row">
                     <div style="text-align: center;">
-                        <h2>CYLINDER LIST</h2>
+                        <h2><span>CYLINDER LIST</span></h2>
                     </div>
                 </div>
                 <table style="width:100%;border: 1px solid;border-collapse: collapse;">
@@ -22,7 +22,7 @@
                             <th style="width:25%;text-align: left;border: 1px solid;">Propietary</th>
                         </tr>
                         <tbody>
-                            <t t-foreach="docs" t-as="cylinder">
+                            <t t-foreach="docs.sorted(key=lambda b: b.gas_id and b.last_rental_date)" t-as="cylinder">
                             <tr class="row" style="border: 1px solid;">
                                 <td style="border: 1px solid;"><span t-field="cylinder.number"/></td>
                                 <td style="border: 1px solid;"><span t-field="cylinder.gas_id"/></td>
