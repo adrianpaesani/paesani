@@ -6,10 +6,6 @@ from datetime import timedelta
 from openerp.osv import osv
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
-class res_company(models.Model):
-	_inherit = "res.company"
-	transfer_note = fields.Text(string='Default Terms and Conditions', translate=True)
-
 class CylinderTransfer(models.Model):
 	_name = "cylinder.transfer"
 	_inherit = ['mail.thread', 'ir.needaction_mixin']
