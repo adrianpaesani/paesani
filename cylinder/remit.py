@@ -381,7 +381,7 @@ class CylinderRemitLineIn(models.Model):
 		self.cylinder_capacity = cylinder.capacity_id
 		self.cylinder_owner_id = cylinder.propietary_id.id
 		if cylinder.last_rental_date:
-			self.days_rented = ((fields.Datetime.from_string(fields.Date.today()) - fields.Datetime.from_string(cylinder.last_rental_date))).days + 1
+			self.days_rented = ((fields.Datetime.from_string(fields.Date.today()) - fields.Datetime.from_string(cylinder.last_rental_date))).days
 		else:
 			self.days_rented = 0
 		self.cap = cylinder.cap

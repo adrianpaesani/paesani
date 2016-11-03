@@ -40,9 +40,9 @@ class Cylinder(models.Model):
 	last_rental_date = fields.Date('Last Rental Date')
 	last_return_date = fields.Date('Last Return Date')
 	# Extras
-	days_rented = fields.Float(digits=(6,2), compute='_calculation', store=True)
+	days_rented = fields.Float(digits=(6,2), compute='_calculation')
 
-	days_plant = fields.Float(digits=(6,2), compute='_calculation_from_plant', store=True)
+	days_plant = fields.Float(digits=(6,2), compute='_calculation_from_plant')
 
 	charge_status = fields.Selection([
 		('full', 'Full'),
@@ -64,7 +64,7 @@ class Cylinder(models.Model):
 			else:
 				start_date = fields.Datetime.from_string(r.last_rental_date)
 				end_date = fields.Datetime.from_string(fields.Date.today())
-				r.days_rented = (end_date - start_date).days + 1
+				r.days_rented = (end_date - start_date).days
 
 	@api.depends('plant_arrival_date')
 	def _calculation_from_plant(self):
@@ -74,4 +74,4 @@ class Cylinder(models.Model):
 			else:
 				start_date = fields.Datetime.from_string(r.plant_arrival_date)
 				end_date = fields.Datetime.from_string(fields.Date.today())
-				r.days_plant = (end_date - start_date).days + 1
+				r.days_plant = (end_date - start_date).days
