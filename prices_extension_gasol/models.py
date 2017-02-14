@@ -4,7 +4,7 @@ from openerp import models, fields, api
 
 class on_change_function(models.Model):
     #Inhertis the model product.template
-    _inherit = 'product.template'
+    _inherit = 'product.product'
     #Creates new fields (ListPrice, Discount1, Discount2, Discount3, Discount4, Charge1, Charge2, Charge3, Charge4) in the model product.template
     ListPrice = fields.Float('List Price')
     Discount1 = fields.Float('Discount1')
@@ -16,7 +16,7 @@ class on_change_function(models.Model):
     Charge3 = fields.Float('Charge3')
     Charge4 = fields.Float('Charge4')
 
-    #This method will be called when either the field CostPrice or the field ShippingCost changes.
+    #This method will be called when either the field ListPrice or any of the discount or charge changes.
     def on_change_price(self,cr,user,ids,ListPrice,Discount1,Discount2,Discount3,Discount4,Charge1,Charge2,Charge3,Charge4,context=None):
     #Calculate the total
         subtotal = (ListPrice * (1-(Discount1/100))) * (1-(Discount2/100)) * (1-(Discount3/100)) * (1-(Discount4/100)) * (1+(Discount1/100)) * (1+(Charge1/100)) * (1+(Charge2/100)) * (1+(Charge3/100)) * (1+(Charge4/100))
