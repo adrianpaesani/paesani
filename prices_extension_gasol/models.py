@@ -8,7 +8,7 @@ class on_change_function(models.Model):
     #Creates new fields (ListPrice, Discount1, Discount2, Discount3, Discount4, Charge1, Charge2, Charge3, Charge4) in the model product.template
     ListPrice = fields.Float('List Price')
     Discount1 = fields.Float('Discount1')
-    Discount1 = fields.Float('Discount2')
+    Discount2 = fields.Float('Discount2')
     Discount3 = fields.Float('Discount3')
     Discount4 = fields.Float('Discount4')
     Charge1 = fields.Float('Charge1')
