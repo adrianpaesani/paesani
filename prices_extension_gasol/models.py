@@ -26,7 +26,7 @@ class on_change_function(models.Model):
                 'standard_price': subtotal
         }
     }
-    #Return the values to update it in the view.
-    return res
+        #Return the values to update it in the view.
+        return res
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
