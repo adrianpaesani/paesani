@@ -17,7 +17,7 @@ class on_change_function(models.Model):
     Charge4 = fields.Float('Charge4')
 	
     #This method will be called when either the field CostPrice or the field ShippingCost changes.
-    def on_change_price(self,cr,user,ids,ListPrice,Discount1,Discount2,Discount3,Discount3,Discount4,Charge1,Charge2,Charge3,Charge4,context=None):
+    def on_change_price(self,cr,user,ids,ListPrice,Discount1,Discount2,Discount3,Discount4,Charge1,Charge2,Charge3,Charge4,context=None):
     #Calculate the total
         subtotal = (ListPrice * (1-(Discount1/100))) * (1-(Discount2/100)) * (1-(Discount3/100)) * (1-(Discount4/100)) * (1+(Discount1/100)) * (1+(Charge1/100)) * (1+(Charge2/100)) * (1+(Charge3/100)) * (1+(Charge4/100))
         res = {
