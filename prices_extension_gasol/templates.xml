@@ -1,8 +1,8 @@
 <openerp>
     <data>
         <record id="view_product_form_inherit" model="ir.ui.view">
-            <field name="name">product.template.common.form.inherit</field>
-            <field name="model">product.template</field>
+            <field name="name">product.product.common.form.inherit</field>
+            <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='standard_price']" position="before">
