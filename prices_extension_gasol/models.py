@@ -4,7 +4,7 @@ from openerp import models, fields, api
 
 class on_change_function(models.Model):
     #Inhertis the model product.template
-    _inherit = 'product.product'
+    _inherit = 'product.template'
     #Creates new fields (ListPrice, Discount1, Discount2, Discount3, Discount4, Charge1, Charge2, Charge3, Charge4) in the model product.template
     ListPrice = fields.Float('List Price')
     Discount1 = fields.Float('Discount1')
