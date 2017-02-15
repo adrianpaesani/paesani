@@ -37,13 +37,13 @@ class on_change_function(models.Model):
 
     #This method will be called when either the field CostPrice or the field ShippingCost changes.
     def on_change_price(self,cr,user,ids,CostPrice,ShippingCost,context=None):
-	#Calculate the total
-	total = CostPrice + ShippingCost
+    #Calculate the total
+    total = CostPrice + ShippingCost
         res = {
             'value': {
-		#This sets the total price on the field standard_price.
+        #This sets the total price on the field standard_price.
                 'standard_price': total
-	      }
-	}
-	#Return the values to update it in the view.
-	return res
+          }
+    }
+    #Return the values to update it in the view.
+    return res
