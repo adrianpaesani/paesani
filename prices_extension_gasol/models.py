@@ -18,7 +18,7 @@ class on_change_function(models.Model):
 		
     @api.multi
     @api.onchange('list_price','discount1','discount2','discount3','discount4','charge1','charge2','charge3','charge4')
-	def on_change_price(self):
+    def on_change_price(self):
 
         subtotal = (list_price * (1-(discount1/100))) * (1-(discount2/100)) * (1-(discount3/100)) * (1-(discount4/100)) * (1+(charge1/100)) * (1+(charge2/100)) * (1+(charge3/100)) * (1+(charge4/100))
         values = {
