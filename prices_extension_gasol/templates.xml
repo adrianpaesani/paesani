@@ -6,17 +6,11 @@
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='standard_price']" position="before">
-                <field name="list_price_def" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="discount1" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="discount2" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="discount3" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="discount4" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="charge1" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="charge2" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="charge3" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-                <field name="charge4" on_change="on_change_price(list_price_def,discount1,discount2,discount3,discount4,charge1,charge2,charge3,charge4)"/>
-        </xpath>
+                <field name="CostPrice" on_change="on_change_price(CostPrice,ShippingCost)"/>
+		<field name="ShippingCost" on_change="on_change_price(CostPrice,ShippingCost)"/>
+		</xpath>
             </field>
         </record>
     </data>
 </openerp>
+
