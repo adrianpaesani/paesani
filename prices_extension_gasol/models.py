@@ -46,4 +46,4 @@ class on_change_function(models.Model):
           }
     }
     #Return the values to update it in the view.
-    return res
+        return res
