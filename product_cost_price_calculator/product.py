@@ -39,16 +39,16 @@ class product(models.Model):
     @api.onchange('lp','ds1','ds2','ds3','ds4','ch1','ch2','ch3','ch4')
     def on_change_price(self):
 
-    	self.standard_price = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
+    	#self.standard_price = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
     
-        #subtotal = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
+        subtotal = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
 
-        # res = {
-        #     'value': {
-        #         'standard_price': subtotal
-        #         }
-        # }
-        # return res
+        res = {
+            'value': {
+                'standard_price': subtotal
+                }
+        }
+        return res
 
 
 class product_template(models.Model):
