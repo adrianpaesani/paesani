@@ -35,7 +35,7 @@ class product(models.Model):
     ch3 = fields.Float('Charge 3')
     ch4 = fields.Float('Charge 4')
 
-    @api.multi
+    
     @api.onchange('lp','ds1','ds2','ds3','ds4','ch1','ch2','ch3','ch4')
     def on_change_price(self):
 
