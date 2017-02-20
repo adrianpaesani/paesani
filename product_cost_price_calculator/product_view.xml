@@ -9,15 +9,21 @@
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
                 <field name="standard_price" position="before">
-                    <field name="lp" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ds1" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ds2" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ds3" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ds4" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ch1" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ch2" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ch3" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
-                    <field name="ch4" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                    <group string="Precio de Lista">
+                        <field name="lp" placeholder="10000.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                    </group>
+                    <group string="Descuentos">
+                        <field name="ds1" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ds2" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ds3" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ds4" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>    
+                    </group>
+                    <group string="Recargos">
+                        <field name="ch1" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ch2" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ch3" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                        <field name="ch4" placeholder="10.00" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
+                    </group>
                 </field>
             </field>
         </record>

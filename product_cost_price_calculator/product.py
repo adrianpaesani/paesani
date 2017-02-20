@@ -25,15 +25,15 @@ class product(models.Model):
 
     _inherit = 'product.product'
 
-    lp = fields.Float('List Price')
-    ds1 = fields.Float('Discount 1')
-    ds2 = fields.Float('Discount 2')
-    ds3 = fields.Float('Discount 3')
-    ds4 = fields.Float('Discount 4')
-    ch1 = fields.Float('Charge 1')
-    ch2 = fields.Float('Charge 2')
-    ch3 = fields.Float('Charge 3')
-    ch4 = fields.Float('Charge 4')
+    lp = fields.Float('Precio de Lista')
+    ds1 = fields.Float('Descuento 1')
+    ds2 = fields.Float('Descuento 2')
+    ds3 = fields.Float('Descuento 3')
+    ds4 = fields.Float('Descuento 4')
+    ch1 = fields.Float('Recargo 1')
+    ch2 = fields.Float('Recargo 2')
+    ch3 = fields.Float('Recargo 3')
+    ch4 = fields.Float('Recargo 4')
 
     def on_change_price(self,cr,user,ids,lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,context=None):
     
