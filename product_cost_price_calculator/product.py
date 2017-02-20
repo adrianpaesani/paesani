@@ -35,9 +35,9 @@ class product(models.Model):
     ch3 = fields.Float('Charge 3')
     ch4 = fields.Float('Charge 4')
 
-    @api.multi
-    @api.onchange('lp','ds1','ds2','ds3','ds4','ch1','ch2','ch3','ch4')
-    def on_change_price(self):
+    #@api.multi
+    #@api.onchange('lp','ds1','ds2','ds3','ds4','ch1','ch2','ch3','ch4')
+    def on_change_price(self,cr,user,ids,lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,context=None):
 
     	#self.standard_price = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
     
