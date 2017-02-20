@@ -51,22 +51,24 @@ class product(models.Model):
         # return res
 
 
-# class product_template(models.Model):
+class product_template(models.Model):
 
-#     """"""
+    """"""
 
-#     _inherit = 'product.template'
+    _inherit = 'product.template'
 
-#     lp = fields.Float('List Price')
-#     ds1 = fields.Float('Discount 1')
-#     ds2 = fields.Float('Discount 2')
-#     ds3 = fields.Float('Discount 3')
-#     ds4 = fields.Float('Discount 4')
-#     ch1 = fields.Float('Charge 1')
-#     ch2 = fields.Float('Charge 2')
-#     ch3 = fields.Float('Charge 3')
-#     ch4 = fields.Float('Charge 4')
+    lp = fields.Float('List Price')
+    ds1 = fields.Float('Discount 1')
+    ds2 = fields.Float('Discount 2')
+    ds3 = fields.Float('Discount 3')
+    ds4 = fields.Float('Discount 4')
+    ch1 = fields.Float('Charge 1')
+    ch2 = fields.Float('Charge 2')
+    ch3 = fields.Float('Charge 3')
+    ch4 = fields.Float('Charge 4')
 
-#     internal_code = fields.Char(
-#         related='product_variant_ids.internal_code',
-#         string='Internal Code')
+    @api.multi
+    @api.onchange('lp','ds1','ds2','ds3','ds4','ch1','ch2','ch3','ch4')
+    def on_change_price(self):
+
+    	self.standard_price = (lp * (1-(ds1/100))) * (1-(ds2/100)) * (1-(ds3/100)) * (1-(ds4/100)) * (1+(ch1/100)) * (1+(ch2/100)) * (1+(ch3/100)) * (1+(ch4/100))
