@@ -29,7 +29,7 @@
     'license': 'AGPL-3',
     'summary': '',
     "description": """
-Product Internal Code
+Product Cost Price Calculator
 =====================
     """,
     "depends": [
