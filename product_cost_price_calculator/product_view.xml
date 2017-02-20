@@ -22,7 +22,7 @@
             </field>
         </record>
 
-        <record id="view_product_template_form" model="ir.ui.view">
+<!--         <record id="view_product_template_form" model="ir.ui.view">
             <field name="name">product.template.form</field>
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_only_form_view"/>
@@ -39,7 +39,7 @@
                     <field name="ch4" on_change="on_change_price(lp,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4)"/>
                 </field>
             </field>
-        </record>
+        </record> -->
 
     </data>
 </openerp>
