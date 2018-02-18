@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_form" model="ir.ui.view">
+        <field name="name">product.user.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <group name="inventory" position="after">
+                <group name="pricesconfig" string="Prices Configuration">
+                    <group string="Precio de Lista">
+                        <field name="lp" placeholder="10000.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="cxu" placeholder="100.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="lp2" placeholder="10000.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                    </group>
+                    </group>
+                    <group name="pricing_cost_config">
+                        <group string="Descuentos">
+                        <field name="ds1" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ds2" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ds3" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ds4" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                    </group>
+                    <group string="Recargos">
+                        <field name="ch1" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ch2" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ch3" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ch4" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                    </group>
+                </group>
+                    <group string="Costos Extra">
+                        <field name="ex_cost1" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ex_cost2" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ex_cost3" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                        <field name="ex_cost4" placeholder="10.00" on_change="on_change_price(lp,cxu,lp2,ds1,ds2,ds3,ds4,ch1,ch2,ch3,ch4,ex_cost1,ex_cost2,ex_cost3,ex_cost4)"/>
+                    </group>
+            </group>
+        </field>
+        </record>
+    </data>
+</openerp>

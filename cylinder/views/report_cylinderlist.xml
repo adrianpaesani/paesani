@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="report_cylinderlist">
+    <t t-call="cylinder.external_layout_extra">
+        <div class="page">
+            <div class="oe_structure">
+                <div class="row">
+                    <div style="text-align: center;">
+                        <h2><span>CYLINDER LIST</span></h2>
+                    </div>
+                </div>
+                <table style="width:100%;border: 1px solid;border-collapse: collapse;">
+                    <thead>
+                        <tr style="border: 1px solid;">
+                            <th style="width:10%;text-align: left;border: 1px solid;">Number</th>
+                            <th style="width:15%;text-align: left;border: 1px solid;">Gas Type</th>
+                            <th style="width:10%;text-align: left;border: 1px solid;">Capacity</th>
+                            <th style="width:5%;text-align: left;border: 1px solid;">Cap</th>
+                            <th style="width:10%;text-align: left;border: 1px solid;">Rent Date</th>
+                            <th style="width:25%;text-align: left;border: 1px solid;">Partner</th>
+                            <th style="width:25%;text-align: left;border: 1px solid;">Propietary</th>
+                        </tr>
+                        <tbody>
+                            <t t-foreach="docs.sorted(key=lambda b: b.gas_id and b.last_rental_date)" t-as="cylinder">
+                            <tr class="row" style="border: 1px solid;">
+                                <td style="border: 1px solid;"><span t-field="cylinder.number"/></td>
+                                <td style="border: 1px solid;"><span t-field="cylinder.gas_id"/></td>
+                                <td style="border: 1px solid;"><span t-field="cylinder.capacity_id"/></td>
+                                <td style="border: 1px solid;text-align: center;" t-if="cylinder.cap == True">Yes</td>
+                                <td style="border: 1px solid;text-align: center;" t-if="cylinder.cap == False">No</td>
+                                <td t-if="cylinder.last_rental_date == False" style="text-align: center;border: 1px solid;">-</td>
+                                <td style="border: 1px solid;" t-if="cylinder.last_rental_date"><span t-field="cylinder.last_rental_date"/></td>
+                                <td style="border: 1px solid;"><span t-field="cylinder.partner_id"/></td>
+                                <td style="border: 1px solid;"><span t-field="cylinder.propietary_id"/></td>
+                            </tr>
+                        </t>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </t>
+</template>
+</data>
+</openerp>

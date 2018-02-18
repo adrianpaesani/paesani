@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <report
+        id="report_remit"
+        model="cylinder.remit"
+        string="Remit"
+        name="cylinder.report_remit_view"
+        file="cylinder.report_remit"
+        report_type="qweb-pdf" />
+
+    <record id="paperformat_remits" model="report.paperformat">
+        <field name="name">Cylinder Remits A4</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">297</field>
+        <field name="page_width">210</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">25</field>
+        <field name="margin_left">15</field>
+        <field name="margin_right">15</field>
+        <field name="header_line" eval="True"/>
+        <field name="header_spacing">3</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="report_remit" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
+    </record>
+
+    <template id="report_remit_view">
+        <!-- <t t-call="report.html_container"> -->
+            
+            <t t-call="cylinder.external_layout_extra">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <div class="oe_structure">
+                            <div class=""></div>
+                            <!-- FIRST ROW -->
+                            <div class="row">
+                                <div class="col-xs-12" style="background-color:#568eff;border: 1px solid; #568eff;color:#fff;">
+                                    <h3>CYLINDER REMIT</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <table style="width:100%;border: 1px solid;">
+                                    <tr>
+                                       <td style="width:70%;">
+                                           <p><strong>User: <span t-field="doc.user_id"/></strong></p>
+                                           <p><strong>Partner: <span t-field="doc.partner_id"/></strong></p>
+                                       </td>
+                                       <td style="width:30%;">
+                                           <p><strong>Remit Number: <span t-field="doc.name"/></strong></p>
+                                           <p><strong>Date: <span t-field="doc.date_remit"/></strong></p>
+                                       </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row">
+                               <div class="col-xs-12" style="border:1px solid #568eff;">
+                                  <p>Notes:</p>
+                                  <p><span t-field="doc.note"/></p>
+                               </div>
+                            </div>
+                            <span t-if="doc.remit_line_out">
+                            <div class="row">
+                                <div class="col-xs-12" style="background-color:#568eff;border: 1px solid; #568eff;color:#fff;">
+                                    <h3>CYLINDERS OUT</h3>
+                                </div>
+                            </div>
+                            <table style="width:100%;border: 1px solid;">
+                                <thead>
+                                    <tr style="border: 1px solid;">
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Number</th>
+                                        <th style="width:20%;text-align: left;border: 1px solid;">Gas Type</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Capacity</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Status</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Has Cap</th>
+                                        <th style="width:40%;text-align: left;border: 1px solid;">Propietary</th>
+                                    </tr>
+                                    <tbody>
+                                        <tr class="row" t-foreach="doc.remit_line_out" t-as="cio">
+                                            <td><span t-field="cio.cylinder_id"/></td>
+                                            <td><span t-field="cio.cylinder_gas"/></td>
+                                            <td><span t-field="cio.cylinder_capacity"/></td>
+                                            <td><span t-field="cio.charge_status"/></td>
+                                            <!-- <td><span t-field="cio.cap"/></td> -->
+                                            <td t-if="cio.cap == True">Yes</td>
+                                            <td t-if="cio.cap == False">No</td>
+                                            <td><span t-field="cio.cylinder_owner_id"/></td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </thead>
+                            </table>
+                            </span>
+                            <span t-if="doc.remit_line_in">
+                            <div class="row">
+                                <div class="col-xs-12" style="background-color:#568eff;border: 1px solid; #568eff;color:#fff;">
+                                    <h3>CYLINDERS IN</h3>
+                                </div>
+                            </div>
+                            <table style="width:100%;border: 1px solid;">
+                                <thead>
+                                    <tr style="border: 1px solid;">
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Number</th>
+                                        <th style="width:20%;text-align: left;border: 1px solid;">Gas Type</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Capacity</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Status</th>
+                                        <th style="width:10%;text-align: left;border: 1px solid;">Has Cap</th>
+                                        <th style="width:5%;text-align: left;border: 1px solid;">Days</th>
+                                        <th style="width:35%;text-align: left;border: 1px solid;">Propietary</th>
+                                    </tr>
+                                    <tbody>
+                                        <tr class="row" t-foreach="doc.remit_line_in" t-as="cin">
+                                            <td><span t-field="cin.cylinder_id"/></td>
+                                            <td><span t-field="cin.cylinder_gas"/></td>
+                                            <td><span t-field="cin.cylinder_capacity"/></td>
+                                            <td><span t-field="cin.charge_status"/></td>
+                                            <!-- <td><span t-field="cin.cap"/></td> -->
+                                            <td t-if="cin.cap == True">Yes</td>
+                                            <td t-if="cin.cap == False">No</td>
+                                            <td><span t-field="cin.days_rented"/></td>
+                                            <td><span t-field="cin.cylinder_owner_id"/></td>
+                                        </tr>
+                                    </tbody>
+                                </thead>
+                            </table>
+                            </span>
+                            <!-- END -->
+                        </div>
+                    </div>
+                </t>
+            </t>
+        <!-- </t> -->
+    </template>
+
+</data>
+</openerp>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="report_cylinder_list"
+            string="Cylinder List"
+            model="cylinder.cylinders"
+            report_type="qweb-pdf"
+            name="cylinder.report_cylinderlist"
+            file="cylinder.report_cylinderlist"/>
+
+        <record id="report_cylinder_list" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="cylinder.paperformat_remits"/>
+        </record>
+    </data>
+</openerp>

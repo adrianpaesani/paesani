@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="gas_form_view">
+            <field name="name">gas.form</field>
+            <field name="model">cylinder.gases</field>
+            <field name="arch" type="xml">
+                <form string="Gas Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gas_search_view">
+            <field name="name">gases.search</field>
+            <field name="model">cylinder.gases</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="capacity_ids"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="gases_list_action">
+            <field name="name">Gases</field>
+            <field name="res_model">cylinder.gases</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first gas
+                </p>
+            </field>
+        </record>
+        
+        <menuitem id="gases_menu" name="Gases" parent="cylinders_config_menu" action="gases_list_action" sequence="9"/>
+
+    </data>
+</openerp>

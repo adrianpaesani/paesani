@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<template id="external_layout_extra">
+    <!-- Multicompany -->
+    <t t-if="not o and doc">
+        <t t-set="o" t-value="doc"/>
+    </t>
+    <t t-if="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id"></t>
+    </t>
+    <t t-if="not o or not 'company_id' in o">
+        <t t-set="company" t-value="res_company"></t>
+    </t>
+
+    <t t-call="cylinder.external_layout_header_extra" />
+    <t t-raw="0" />
+    <t t-call="cylinder.external_layout_footer_extra" />
+</template>
+
+<template id="external_layout_header_extra">
+    <div class="header">
+        <div class="row">
+            <div class="col-xs-3">
+                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;"/>
+            </div>
+            <div class="col-xs-9 text-right" style="margin-top:20px;" t-field="company.rml_header1"/>
+        </div>
+        <div class="row zero_min_height">
+            <div class="col-xs-12">
+                <div style="border-bottom: 1px solid black;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" name="company_address">
+                <div t-field="company.partner_id" 
+                    t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                    style="border-bottom: 1px solid black;"/>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="external_layout_footer_extra">
+    <div class="footer">
+        <span>Received by .........................................................</span>
+        <span>Reception Date: ....../....../..........</span>
+        <div class="text-center" style="border-top: 1px solid black;">
+            Page: <span class="page"/>/<span class="topage"/>
+        </div>
+    </div>      
+</template>
+
+</data>
+</openerp>

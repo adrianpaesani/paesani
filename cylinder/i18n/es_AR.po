@@ -1,0 +1,1493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* cylinder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-01 18:14+0000\n"
+"PO-Revision-Date: 2016-09-01 18:14+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.action_remits
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"					Create a Remit, the first step of a new rent.\n"
+"				</p><p>\n"
+"					Your next action should flow efficiently: confirm the Remit.\n"
+"				</p>\n"
+"			"
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"					Genere un Remito, este es el primer paso para un alquiler.\n"
+"				</p><p>\n"
+"					La siguiente acción será confirmar el Remito.\n"
+"				</p>\n"
+"			"
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.action_transfers
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"					Create a Transfer, the first step of a new transfer.\n"
+"				</p><p>\n"
+"					Your next action should flow efficiently: confirm the Transfer.\n"
+"				</p>\n"
+"			"
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"					Genere una Transferencia, el primer paso de una nueva transferencia.\n"
+"				</p><p>\n"
+"					La siguiente acción será confirmar la Transferencia.\n"
+"				</p>\n"
+"			"
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.action_plant_remits
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"          Create a Remit, the first step of a new plant remit.\n"
+"        </p><p>\n"
+"          Your next action should flow efficiently: confirm the Remit.\n"
+"        </p>\n"
+"      "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"          Cree un Remito, este es el primer paso para enviar cilindros a la planta.\n"
+"        </p><p>\n"
+"          Lo siguiente será confirmar el Remito.\n"
+"        </p>\n"
+"      "
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.capacities_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first capacity\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Cree una capacidad\n"
+"                </p>\n"
+"            "
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.codes_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first capacity code\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Cree el primer código de capacidad\n"
+"                </p>\n"
+"            "
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.cylinder_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first cylinder\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Cree un cilindro\n"
+"                </p>\n"
+"            "
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.gases_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first gas\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Cree un tipo de gas\n"
+"                </p>\n"
+"            "
+
+#. module: cylinder
+#: model:ir.actions.act_window,help:cylinder.locations_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first location\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">Cree la primera ubicación\n"
+"                </p>\n"
+"            "
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: field:cylinder.cylinders,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: cylinder
+#: field:cylinder.locations,address:0
+msgid "Address"
+msgstr "Domicilio"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Arrival date from plant"
+msgstr "Fecha de llegada de planta"
+
+#. module: cylinder
+#: field:cylinder.cylinders,arrival_control_number:0
+msgid "Arrival from plant control ticket number"
+msgstr "Número de ticket de control de planta"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Available for rental"
+msgstr "Disponible para alquiler"
+
+#. module: cylinder
+#: view:website:cylinder.report_cylinderlist
+msgid "CYLINDER LIST"
+msgstr "LISTA DE CILINDROS"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+msgid "CYLINDER PLANT REMIT"
+msgstr "REMITO DE CILINDROS PLANTA"
+
+#. module: cylinder
+#: view:website:cylinder.report_remit_view
+msgid "CYLINDER REMIT"
+msgstr "REMITO DE CILINDROS"
+
+#. module: cylinder
+#: view:website:cylinder.report_transfer_view
+msgid "CYLINDERS"
+msgstr "CILINDROS"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+msgid "CYLINDERS IN"
+msgstr "ENTRADA"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+msgid "CYLINDERS OUT"
+msgstr "SALIDA"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Can be rented"
+msgstr "Puede ser alquilado"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: cylinder
+#: selection:cylinder.plant_remit,state:0
+#: selection:cylinder.remit,state:0
+#: selection:cylinder.transfer,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: cylinder
+#: field:cylinder.plant_remit.line_in,cap:0
+#: field:cylinder.plant_remit.line_out,cap:0
+#: field:cylinder.remit.line_in,cap:0
+#: field:cylinder.remit.line_out,cap:0
+#: field:cylinder.transfer.line,cap:0
+#: view:website:cylinder.report_cylinderlist
+msgid "Cap"
+msgstr "Tapa/Tulipa"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: field:cylinder.cylinders,capacity_id:0
+#: field:cylinder.gases,capacity_ids:0
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit.line_in,cylinder_capacity:0
+#: field:cylinder.plant_remit.line_out,cylinder_capacity:0
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit.line_in,cylinder_capacity:0
+#: field:cylinder.remit.line_out,cylinder_capacity:0
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: field:cylinder.transfer.line,cylinder_capacity:0
+#: model:ir.actions.act_window,name:cylinder.capacities_list_action
+#: model:ir.ui.menu,name:cylinder.capacity_menu
+#: view:website:cylinder.report_cylinderlist
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Capacity"
+msgstr "Capacidad"
+
+#. module: cylinder
+#: field:cylinder.capacity,code_id:0
+msgid "Capacity Code"
+msgstr "Código de Capacidad"
+
+#. module: cylinder
+#: view:cylinder.codes:cylinder.codes_form_view
+msgid "Capacity Code Form"
+msgstr "Formulario de Código de Capacidad"
+
+#. module: cylinder
+#: model:ir.ui.menu,name:cylinder.capacity_codes_menu
+#: model:ir.ui.menu,name:cylinder.codes_menu
+msgid "Capacity Codes"
+msgstr "Códigos de Capacidad"
+
+#. module: cylinder
+#: view:cylinder.capacity:cylinder.capacity_form_view
+msgid "Capacity Form"
+msgstr "Capacidad"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Charge Status"
+msgstr "Estado"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.codes_list_action
+msgid "Code"
+msgstr "Código"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,company_id:0
+#: field:cylinder.plant_remit.line_in,company_id:0
+#: field:cylinder.plant_remit.line_out,company_id:0
+#: field:cylinder.remit,company_id:0
+#: field:cylinder.remit.line_in,company_id:0
+#: field:cylinder.remit.line_out,company_id:0
+#: field:cylinder.transfer,company_id:0
+#: field:cylinder.transfer.line,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: cylinder
+#: model:ir.ui.menu,name:cylinder.cylinders_config_menu
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Confirm Remit"
+msgstr "Confirmar Remito"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Confirm Transfer"
+msgstr "Confirmar Transferencia"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Control Ticket Number"
+msgstr "Número de Ticket de Control"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Created On"
+msgstr "Fecha de Alta"
+
+#. module: cylinder
+#: field:cylinder.capacity,create_uid:0
+#: field:cylinder.codes,create_uid:0
+#: field:cylinder.cylinders,create_uid:0
+#: field:cylinder.gases,create_uid:0
+#: field:cylinder.locations,create_uid:0
+#: field:cylinder.plant_remit,create_uid:0
+#: field:cylinder.plant_remit.line_in,create_uid:0
+#: field:cylinder.plant_remit.line_out,create_uid:0
+#: field:cylinder.remit,create_uid:0
+#: field:cylinder.remit.line_in,create_uid:0
+#: field:cylinder.remit.line_out,create_uid:0
+#: field:cylinder.transfer,create_uid:0
+#: field:cylinder.transfer.line,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: cylinder
+#: field:cylinder.capacity,create_date:0
+#: field:cylinder.codes,create_date:0
+#: field:cylinder.cylinders,create_date:0
+#: field:cylinder.gases,create_date:0
+#: field:cylinder.locations,create_date:0
+#: field:cylinder.plant_remit.line_in,create_date:0
+#: field:cylinder.plant_remit.line_out,create_date:0
+#: field:cylinder.remit.line_in,create_date:0
+#: field:cylinder.remit.line_out,create_date:0
+#: field:cylinder.transfer.line,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: cylinder
+#: field:cylinder.cylinders,plant_arrival_date:0
+#: field:cylinder.cylinders,plant_send_date:0
+#: field:cylinder.plant_remit,create_date:0
+#: field:cylinder.remit,create_date:0
+#: field:cylinder.transfer,create_date:0
+msgid "Creation Date"
+msgstr "Fecha de creacion"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: field:cylinder.plant_remit.line_in,remit_partner_id:0
+#: field:cylinder.plant_remit.line_out,remit_partner_id:0
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+#: field:cylinder.remit,partner_id:0
+#: field:cylinder.remit.line_in,remit_partner_id:0
+#: field:cylinder.remit.line_out,remit_partner_id:0
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: cylinder
+#: field:cylinder.remit,client_remit_ref:0
+msgid "Customer Reference"
+msgstr "Referencia de Cliente"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: field:cylinder.plant_remit.line_in,cylinder_id:0
+#: field:cylinder.plant_remit.line_out,cylinder_id:0
+#: field:cylinder.remit.line_in,cylinder_id:0
+#: field:cylinder.remit.line_out,cylinder_id:0
+#: field:cylinder.transfer.line,cylinder_id:0
+msgid "Cylinder"
+msgstr "Cilindro"
+
+#. module: cylinder
+#: model:ir.actions.report.xml,name:cylinder.report_cylinder_list
+#: model:ir.ui.menu,name:cylinder.cylinder_list_menu
+msgid "Cylinder List"
+msgstr "Listado de Cilindros"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: field:cylinder.cylinders,number:0
+msgid "Cylinder Number"
+msgstr "Número de Cilindro"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.plant_remit:cylinder.view_plant_remit_tree
+#: selection:cylinder.plant_remit,state:0
+msgid "Cylinder Plant Remit"
+msgstr "Remito de Planta"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_plant_remit_line_in
+msgid "Cylinder Plant Remit Line In"
+msgstr "Remito de Planta Entrada"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_plant_remit_line_out
+msgid "Cylinder Plant Remit Line Out"
+msgstr "Remito de Planta Salida"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_plant_remit_list_in
+msgid "Cylinder Plant Remit Lines In"
+msgstr "Líneas de Entrada de Remitos de Planta"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_plant_remit_list_out
+msgid "Cylinder Plant Remit Lines Out"
+msgstr "Líneas de Salida de Remitos de Planta"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit
+#: model:ir.actions.act_window,name:cylinder.action_plant_remits
+msgid "Cylinder Plant Remits"
+msgstr "Remitos de Planta"
+
+#. module: cylinder
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.remit:cylinder.view_remit_tree
+#: selection:cylinder.remit,state:0
+msgid "Cylinder Remit"
+msgstr "Remito de Cilindro"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_remit_line_in
+msgid "Cylinder Remit Line In"
+msgstr "Línea de Entrada de Remito"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_remit_line_out
+msgid "Cylinder Remit Line Out"
+msgstr "Remito Linea Salida"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_remit_list_in
+msgid "Cylinder Remit Lines In"
+msgstr "Líneas de Entrada de Remitos"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.action_cylinder_remit_list_out
+msgid "Cylinder Remit Lines Out"
+msgstr "Líneas de Salida de Remitos"
+
+#. module: cylinder
+#: view:cylinder.remit:cylinder.view_cylinder_remit
+#: model:ir.actions.act_window,name:cylinder.action_remits
+msgid "Cylinder Remits"
+msgstr "Remitos de Cilindros"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+msgid "Cylinder Remits that haven't yet been confirmed"
+msgstr "Remitos de Cilindro sin confirmar"
+
+#. module: cylinder
+#: field:cylinder.cylinders,charge_status:0
+#: field:cylinder.plant_remit.line_in,charge_status:0
+#: field:cylinder.plant_remit.line_out,charge_status:0
+#: field:cylinder.remit.line_in,charge_status:0
+#: field:cylinder.remit.line_out,charge_status:0
+#: field:cylinder.transfer.line,charge_status:0
+msgid "Cylinder Status"
+msgstr "Estado"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: view:cylinder.transfer:cylinder.view_transfer_tree
+#: selection:cylinder.transfer,state:0
+#: model:ir.model,name:cylinder.model_cylinder_transfer
+msgid "Cylinder Transfer"
+msgstr "Transferencia de Cilindro"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_transfer_line
+msgid "Cylinder Transfer Line"
+msgstr "Línea de Transferencia de Cilindro"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer
+#: model:ir.actions.act_window,name:cylinder.action_transfers
+msgid "Cylinder Transfers"
+msgstr "Transferencias de Cilindros"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Cylinder Transfers that haven't yet been confirmed"
+msgstr "Transferencias de Cilindros que no fueron confirmadas"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.cylinder_list_action
+#: model:ir.ui.menu,name:cylinder.main_cylinders_menu
+msgid "Cylinders"
+msgstr "Cilindros"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_tree_view
+msgid "Cylinders Tree"
+msgstr "Lista de Cilindros"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Date from last return"
+msgstr "Fecha de última devolución"
+
+#. module: cylinder
+#: help:cylinder.plant_remit,message_last_post:0
+#: help:cylinder.remit,message_last_post:0
+#: help:cylinder.transfer,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr "Fecha del último mensaje publicado en el registro."
+
+#. module: cylinder
+#: help:cylinder.plant_remit,create_date:0
+#: help:cylinder.remit,create_date:0
+msgid "Date on which remit is created."
+msgstr "Fecha de Creación del Remito."
+
+#. module: cylinder
+#: help:cylinder.transfer,create_date:0
+msgid "Date on which transfer is created."
+msgstr "Fecha de creación de la transferencia."
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Date:"
+msgstr "Fecha:"
+
+#. module: cylinder
+#: view:website:cylinder.report_remit_view
+msgid "Days"
+msgstr "Días"
+
+#. module: cylinder
+#: field:cylinder.remit.line_in,days_rented:0
+msgid "Days Rented"
+msgstr "Días de Alquiler"
+
+#. module: cylinder
+#: field:cylinder.cylinders,days_plant:0
+msgid "Days plant"
+msgstr "Días Planta"
+
+#. module: cylinder
+#: field:cylinder.cylinders,days_rented:0
+msgid "Days rented"
+msgstr "Días de Alquiler"
+
+#. module: cylinder
+#: field:res.company,plant_remit_note:0
+#: field:res.company,remit_note:0
+#: field:res.company,transfer_note:0
+msgid "Default Terms and Conditions"
+msgstr "Términos y condiciones por defecto"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,partner_shipping_id:0
+#: field:cylinder.remit,partner_shipping_id:0
+msgid "Delivery Address"
+msgstr "Domicilio de Entrega"
+
+#. module: cylinder
+#: help:cylinder.plant_remit,partner_shipping_id:0
+#: help:cylinder.remit,partner_shipping_id:0
+msgid "Delivery address for current remit."
+msgstr "Domicilio de Entrega del remito."
+
+#. module: cylinder
+#: field:cylinder.gases,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: cylinder
+#: field:cylinder.cylinders,details:0
+msgid "Detailed Information"
+msgstr "Información Detallada"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Detailed Information from Arrival"
+msgstr "Información Detallada de Entrada"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Detailed Information from Send"
+msgstr "Información Detallada de Envío"
+
+#. module: cylinder
+#: field:cylinder.cylinders,control_arrival_detail:0
+#: field:cylinder.cylinders,control_send_detail:0
+msgid "Detailed information about plant control"
+msgstr "Información Detallada del control de planta"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Details"
+msgstr "Detalles"
+
+#. module: cylinder
+#: selection:cylinder.plant_remit,state:0
+#: selection:cylinder.remit,state:0
+#: selection:cylinder.transfer,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+msgid "Draft Remits"
+msgstr "Remitos Borrador"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Draft Transfers"
+msgstr "Transferencias Borrador"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de composición de e-mail"
+
+#. module: cylinder
+#: selection:cylinder.cylinders,charge_status:0
+#: selection:cylinder.plant_remit.line_in,charge_status:0
+#: selection:cylinder.plant_remit.line_out,charge_status:0
+#: selection:cylinder.remit.line_in,charge_status:0
+#: selection:cylinder.remit.line_out,charge_status:0
+#: selection:cylinder.transfer.line,charge_status:0
+msgid "Empty"
+msgstr "Vacío"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Entrada"
+msgstr "Entrada"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_follower_ids:0
+#: field:cylinder.remit,message_follower_ids:0
+#: field:cylinder.transfer,message_follower_ids:0
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: cylinder
+#: selection:cylinder.cylinders,charge_status:0
+#: selection:cylinder.plant_remit.line_in,charge_status:0
+#: selection:cylinder.plant_remit.line_out,charge_status:0
+#: selection:cylinder.remit.line_in,charge_status:0
+#: selection:cylinder.remit.line_out,charge_status:0
+#: selection:cylinder.transfer.line,charge_status:0
+msgid "Full"
+msgstr "Lleno"
+
+#. module: cylinder
+#: field:cylinder.capacity,gases_id:0
+msgid "Gas"
+msgstr "Gas"
+
+#. module: cylinder
+#: view:cylinder.gases:cylinder.gas_form_view
+msgid "Gas Form"
+msgstr "Tipo de Gas"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit.line_in,cylinder_gas:0
+#: field:cylinder.plant_remit.line_out,cylinder_gas:0
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit.line_in,cylinder_gas:0
+#: field:cylinder.remit.line_out,cylinder_gas:0
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: field:cylinder.transfer.line,cylinder_gas:0
+#: view:website:cylinder.report_cylinderlist
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Gas Type"
+msgstr "Tipo de Gas"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.gases_list_action
+#: model:ir.ui.menu,name:cylinder.gas_menu
+#: model:ir.ui.menu,name:cylinder.gases_menu
+msgid "Gases"
+msgstr "Gases"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Group by"
+msgstr "Agrupar por ..."
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Group by ..."
+msgstr "Agrupar por ..."
+
+#. module: cylinder
+#: selection:cylinder.cylinders,charge_status:0
+#: selection:cylinder.plant_remit.line_in,charge_status:0
+#: selection:cylinder.plant_remit.line_out,charge_status:0
+#: selection:cylinder.remit.line_in,charge_status:0
+#: selection:cylinder.remit.line_out,charge_status:0
+#: selection:cylinder.transfer.line,charge_status:0
+msgid "Half Charge"
+msgstr "Media Carga"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Has Cap"
+msgstr "Tapa/Tulipa"
+
+#. module: cylinder
+#: field:cylinder.cylinders,cap:0
+msgid "Has cap"
+msgstr "Tapa/Tulipa"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Has cap?"
+msgstr "¿Tiene tapa/tulipa?"
+
+#. module: cylinder
+#: help:cylinder.plant_remit,message_summary:0
+#: help:cylinder.remit,message_summary:0
+#: help:cylinder.transfer,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr "Contiene el resumen del Chat (número de mensajes, ...). Este resumen está directamente en formato html para ser insertado en vistas kanban."
+
+#. module: cylinder
+#: field:cylinder.capacity,id:0
+#: field:cylinder.codes,id:0
+#: field:cylinder.cylinders,id:0
+#: field:cylinder.gases,id:0
+#: field:cylinder.locations,id:0
+#: field:cylinder.plant_remit,id:0
+#: field:cylinder.plant_remit.line_in,id:0
+#: field:cylinder.plant_remit.line_out,id:0
+#: field:cylinder.remit,id:0
+#: field:cylinder.remit.line_in,id:0
+#: field:cylinder.remit.line_out,id:0
+#: field:cylinder.transfer,id:0
+#: field:cylinder.transfer.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "If a remit is done, you cannot modify it manually anymore. However, you will still be able to done. This is used to freeze the remit."
+msgstr "Si un remito está listo, no se puede modificar manualmente. Sin embargo, podrá finalizarlo. Esto se utiliza para congelar el estado."
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "If a transfer is done, you cannot modify it manually anymore. However, you will still be able to done. This is used to freeze the transfer."
+msgstr "Si una transferencia está lista, no se puede modificar manualmente. Sin embargo, podrá finalizarla. Esto se utiliza para congelar el estado de la transferencia."
+
+#. module: cylinder
+#: help:cylinder.plant_remit,message_unread:0
+#: help:cylinder.remit,message_unread:0
+#: help:cylinder.transfer,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Si está marcado necesita su atención."
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "In from Client"
+msgstr "Entradas (R)"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "In from Plant"
+msgstr "Entradas (P)"
+
+#. module: cylinder
+#: code:addons/cylinder/plant_remit.py:58
+#: code:addons/cylinder/plant_remit.py:248
+#: code:addons/cylinder/plant_remit.py:360
+#: code:addons/cylinder/remit.py:58
+#: code:addons/cylinder/remit.py:306
+#: code:addons/cylinder/remit.py:432
+#: code:addons/cylinder/transfers.py:51
+#: code:addons/cylinder/transfers.py:268
+#, python-format
+msgid "Invalid Action!"
+msgstr "¡Acción no permitida!"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Is Active"
+msgstr "Activo"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_is_follower:0
+#: field:cylinder.remit,message_is_follower:0
+#: field:cylinder.transfer,message_is_follower:0
+msgid "Is a Follower"
+msgstr "Es un seguidor"
+
+#. module: cylinder
+#: field:cylinder.cylinders,rental:0
+msgid "Is active for Rent"
+msgstr "Disponible para alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Is in Plant"
+msgstr "Está en Planta"
+
+#. module: cylinder
+#: field:cylinder.cylinders,plant:0
+msgid "Is in plant"
+msgstr "En planta"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Is in plant?"
+msgstr "¿Se encuentra en la planta?"
+
+#. module: cylinder
+#: field:cylinder.cylinders,rented:0
+msgid "Is rented"
+msgstr "Alquilado"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Is rented?"
+msgstr "¿Está alquilado?"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: field:cylinder.cylinders,ht_date:0
+msgid "Last Hidraulic Test"
+msgstr "Prueba Hidráulica"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_last_post:0
+#: field:cylinder.remit,message_last_post:0
+#: field:cylinder.transfer,message_last_post:0
+msgid "Last Message Date"
+msgstr "Fecha de último mensaje"
+
+#. module: cylinder
+#: field:cylinder.cylinders,last_rental_date:0
+msgid "Last Rental Date"
+msgstr "Fecha de último alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Last Rental Partner"
+msgstr "Cliente que alquiló por última vez"
+
+#. module: cylinder
+#: field:cylinder.cylinders,last_return_date:0
+msgid "Last Return Date"
+msgstr "Fecha de última devolución"
+
+#. module: cylinder
+#: field:cylinder.capacity,write_uid:0
+#: field:cylinder.codes,write_uid:0
+#: field:cylinder.cylinders,write_uid:0
+#: field:cylinder.gases,write_uid:0
+#: field:cylinder.locations,write_uid:0
+#: field:cylinder.plant_remit,write_uid:0
+#: field:cylinder.plant_remit.line_in,write_uid:0
+#: field:cylinder.plant_remit.line_out,write_uid:0
+#: field:cylinder.remit,write_uid:0
+#: field:cylinder.remit.line_in,write_uid:0
+#: field:cylinder.remit.line_out,write_uid:0
+#: field:cylinder.transfer,write_uid:0
+#: field:cylinder.transfer.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Ultima actualización por"
+
+#. module: cylinder
+#: field:cylinder.capacity,write_date:0
+#: field:cylinder.codes,write_date:0
+#: field:cylinder.cylinders,write_date:0
+#: field:cylinder.gases,write_date:0
+#: field:cylinder.locations,write_date:0
+#: field:cylinder.plant_remit,write_date:0
+#: field:cylinder.plant_remit.line_in,write_date:0
+#: field:cylinder.plant_remit.line_out,write_date:0
+#: field:cylinder.remit,write_date:0
+#: field:cylinder.remit.line_in,write_date:0
+#: field:cylinder.remit.line_out,write_date:0
+#: field:cylinder.transfer,write_date:0
+#: field:cylinder.transfer.line,write_date:0
+msgid "Last Updated on"
+msgstr "Actualizado por última vez el"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Last rental date"
+msgstr "Fecha de último alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: field:cylinder.cylinders,location_id:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,location_in_id:0
+#: field:cylinder.remit,location_in_id:0
+msgid "Location In"
+msgstr "Ubicación de Entrada"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,location_out_id:0
+#: field:cylinder.remit,location_out_id:0
+msgid "Location Out"
+msgstr "Ubicación de Salida"
+
+#. module: cylinder
+#: view:website:cylinder.report_transfer_view
+msgid "Location:"
+msgstr "Ubicación:"
+
+#. module: cylinder
+#: model:ir.actions.act_window,name:cylinder.locations_list_action
+#: model:ir.ui.menu,name:cylinder.location_menu
+#: model:ir.ui.menu,name:cylinder.locations_menu
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: cylinder
+#: view:cylinder.locations:cylinder.locations_form_view
+msgid "Locations Form"
+msgstr "Formulario de Ubicaciones"
+
+#. module: cylinder
+#: model:ir.ui.menu,name:cylinder.cylinder_menu
+msgid "Main"
+msgstr "Principal"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_ids:0
+#: field:cylinder.remit,message_ids:0
+#: field:cylinder.transfer,message_ids:0
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: cylinder
+#: help:cylinder.plant_remit,message_ids:0
+#: help:cylinder.remit,message_ids:0
+#: help:cylinder.transfer,message_ids:0
+msgid "Messages and communication history"
+msgstr "Historial de mensajes y comunicaciones"
+
+#. module: cylinder
+#: view:cylinder.remit.line_in:cylinder.view_movements_tree_in
+#: view:cylinder.remit.line_out:cylinder.view_movements_tree_out
+msgid "Movements"
+msgstr "Movimientos"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Movements Information"
+msgstr "Información de movimientos"
+
+#. module: cylinder
+#: view:cylinder.plant_remit.line_in:cylinder.view_plant_movements_tree_in
+#: view:cylinder.plant_remit.line_out:cylinder.view_plant_movements_tree_out
+msgid "Movements Plant"
+msgstr "Movimientos Planta"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+msgid "My Remits"
+msgstr "Mis Remitos"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "My Transfers"
+msgstr "Mis Transferencias"
+
+#. module: cylinder
+#: field:cylinder.capacity,name:0
+#: field:cylinder.codes,name:0
+#: field:cylinder.gases,name:0
+#: field:cylinder.locations,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: cylinder
+#: code:addons/cylinder/plant_remit.py:20
+#: code:addons/cylinder/remit.py:20
+#: code:addons/cylinder/transfers.py:20
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Not Active"
+msgstr "Inactivo"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,note:0
+#: field:cylinder.remit,note:0
+#: field:cylinder.transfer,note:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Notes:"
+msgstr "Notas:"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: view:website:cylinder.report_cylinderlist
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Number"
+msgstr "Número"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Other Information"
+msgstr "Otra Información"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "Out to Client"
+msgstr "Salidas (R)"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view_plant_remit_button
+msgid "Out to Plant"
+msgstr "Salidas (P)"
+
+#. module: cylinder
+#: view:website:cylinder.external_layout_footer_extra
+msgid "Page:"
+msgstr "Página:"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: field:cylinder.cylinders,last_rent_partner_id:0
+#: field:cylinder.cylinders,partner_id:0
+#: view:website:cylinder.report_cylinderlist
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+msgid "Partner:"
+msgstr "Empresa:"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: model:ir.ui.menu,name:cylinder.plant_remits
+msgid "Plant"
+msgstr "Planta"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Plant Arrival Detail"
+msgstr "Detalle de Ingreso de Planta"
+
+#. module: cylinder
+#: model:ir.model,name:cylinder.model_cylinder_remit
+msgid "Plant Remit"
+msgstr "Remito de Planta"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit,plant_remit_line_in:0
+msgid "Plant Remit Lines In"
+msgstr "Linea de Entrada Remito de Planta"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit,plant_remit_line_out:0
+msgid "Plant Remit Lines Out"
+msgstr "Linea de Salida Remito de Planta"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,name:0
+#: field:cylinder.plant_remit.line_in,remit_id:0
+#: field:cylinder.plant_remit.line_out,remit_id:0
+msgid "Plant Remit Reference"
+msgstr "Referencia de Remito de Planta"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Plant Send Detail"
+msgstr "Detalle de Envío a Planta"
+
+#. module: cylinder
+#: selection:cylinder.plant_remit,state:0
+#: selection:cylinder.remit,state:0
+#: selection:cylinder.transfer,state:0
+msgid "Preparation"
+msgstr "Preparación"
+
+#. module: cylinder
+#: selection:cylinder.plant_remit,state:0
+#: selection:cylinder.remit,state:0
+#: selection:cylinder.transfer,state:0
+msgid "Preparation Send"
+msgstr "Enviar Preparación"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+#: field:cylinder.cylinders,propietary_id:0
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit.line_in,cylinder_owner_id:0
+#: field:cylinder.plant_remit.line_out,cylinder_owner_id:0
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit.line_in,cylinder_owner_id:0
+#: field:cylinder.remit.line_out,cylinder_owner_id:0
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: field:cylinder.transfer.line,cylinder_owner_id:0
+#: view:website:cylinder.report_cylinderlist
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Propietary"
+msgstr "Propietario"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,partner_id:0
+msgid "Provider"
+msgstr "Proveedor"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,provider_remit_ref:0
+msgid "Provider Reference"
+msgstr "Referencia de Proveedor"
+
+#. module: cylinder
+#: view:website:cylinder.external_layout_footer_extra
+msgid "Received by ........................................................."
+msgstr "Recibido por ........................................................."
+
+#. module: cylinder
+#: view:website:cylinder.external_layout_footer_extra
+msgid "Reception Date: ....../....../.........."
+msgstr "Fecha de Recepción: ....../....../.........."
+
+#. module: cylinder
+#: model:ir.actions.report.xml,name:cylinder.report_plant_remit
+#: model:ir.actions.report.xml,name:cylinder.report_remit
+#: model:ir.ui.menu,name:cylinder.remit_menu
+msgid "Remit"
+msgstr "Remito"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,date_remit:0
+#: field:cylinder.remit,date_remit:0
+msgid "Remit Date"
+msgstr "Fecha de Remito"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Remit Information"
+msgstr "Información"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Remit Lines"
+msgstr "Líneas de Remito"
+
+#. module: cylinder
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit,remit_line_in:0
+msgid "Remit Lines In"
+msgstr "Lineas de Entrada"
+
+#. module: cylinder
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit,remit_line_out:0
+msgid "Remit Lines Out"
+msgstr "Lineas de Salida"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+msgid "Remit Month"
+msgstr "Mes del Remito"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_plant_remit_tree
+#: view:cylinder.plant_remit.line_in:cylinder.view_plant_movements_tree_in
+#: view:cylinder.plant_remit.line_out:cylinder.view_plant_movements_tree_out
+#: view:cylinder.remit:cylinder.view_remit_tree
+#: view:cylinder.remit.line_in:cylinder.view_movements_tree_in
+#: view:cylinder.remit.line_out:cylinder.view_movements_tree_out
+msgid "Remit Number"
+msgstr "Numero de Remito"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+msgid "Remit Number:"
+msgstr "Numero de Remito:"
+
+#. module: cylinder
+#: field:cylinder.remit,name:0
+#: field:cylinder.remit.line_in,remit_id:0
+#: field:cylinder.remit.line_out,remit_id:0
+msgid "Remit Reference"
+msgstr "Referencia"
+
+#. module: cylinder
+#: field:cylinder.plant_remit.line_in,state:0
+#: field:cylinder.plant_remit.line_out,state:0
+#: field:cylinder.remit.line_in,state:0
+#: field:cylinder.remit.line_out,state:0
+msgid "Remit Status"
+msgstr "Estado"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+#: model:ir.ui.menu,name:cylinder.remits_menu
+msgid "Remits"
+msgstr "Remitos"
+
+#. module: cylinder
+#: model:ir.ui.menu,name:cylinder.plant_remits_menu
+msgid "Remits In/Out"
+msgstr "Remitos de Planta E/S"
+
+#. module: cylinder
+#: view:website:cylinder.report_cylinderlist
+msgid "Rent Date"
+msgstr "F. Alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Rental Information"
+msgstr "Información de Alquiler"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_search_view
+msgid "Rented"
+msgstr "Alquilado"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Reporting"
+msgstr "Reportes"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Salesperson"
+msgstr "Responsable"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Salida"
+msgstr "Salida"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.view_cylinder_plant_remit_filter
+msgid "Search Cylinders Plant Remit"
+msgstr "Buscar Remitos de Planta"
+
+#. module: cylinder
+#: view:cylinder.remit:cylinder.view_cylinder_remit_filter
+msgid "Search Cylinders Remit"
+msgstr "Buscar Remitos"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Search Cylinders Transfers"
+msgstr "Buscar Transferencias de Cilindros"
+
+#. module: cylinder
+#: view:cylinder.cylinders:cylinder.cylinder_form_view
+msgid "Send date to plant"
+msgstr "Fecha de envío a planta"
+
+#. module: cylinder
+#: field:cylinder.cylinders,send_control_number:0
+msgid "Send to plant control ticket number"
+msgstr "Número de ticket de envío a planta"
+
+#. module: cylinder
+#: field:cylinder.plant_remit.line_in,sequence:0
+#: field:cylinder.plant_remit.line_out,sequence:0
+#: field:cylinder.remit.line_in,sequence:0
+#: field:cylinder.remit.line_out,sequence:0
+#: field:cylinder.transfer.line,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Set to Done"
+msgstr "Marcar como listo"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+msgid "Set to Remit"
+msgstr "Marcar como Remito"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Set to Transfer"
+msgstr "Establecer a Transferencia"
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: view:cylinder.remit:cylinder.view_remit_form
+#: view:cylinder.transfer:cylinder.view_transfer_form
+msgid "Setup notes."
+msgstr "Configurar notas."
+
+#. module: cylinder
+#: view:cylinder.plant_remit:cylinder.plant_remit_form_view
+#: field:cylinder.plant_remit,state:0
+#: view:cylinder.remit:cylinder.view_remit_form
+#: field:cylinder.remit,state:0
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: field:cylinder.transfer,state:0
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Status"
+msgstr "Estado"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_summary:0
+#: field:cylinder.remit,message_summary:0
+#: field:cylinder.transfer,message_summary:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: cylinder
+#: view:website:cylinder.report_transfer_view
+msgid "TRANSFER"
+msgstr "TRANSFERENCIA"
+
+#. module: cylinder
+#: sql_constraint:cylinder.cylinders:0
+msgid "The number must be unique!.\n"
+"This number already exists."
+msgstr "¡El número debe ser único!.\n"
+"Este número ya existe."
+
+#. module: cylinder
+#: model:ir.actions.report.xml,name:cylinder.report_transfer
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: cylinder
+#: field:cylinder.transfer,date_transfer:0
+msgid "Transfer Date"
+msgstr "Fecha de Transferencia"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_transfer_form
+#: field:cylinder.transfer,transfer_line:0
+msgid "Transfer Lines"
+msgstr "Línes de Transferencia"
+
+#. module: cylinder
+#: field:cylinder.transfer,location_id:0
+msgid "Transfer Location"
+msgstr "Ubicación de Transferencia"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+msgid "Transfer Month"
+msgstr "Mes de Transferencia"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_transfer_tree
+msgid "Transfer Number"
+msgstr "Número de Transferencia"
+
+#. module: cylinder
+#: view:website:cylinder.report_transfer_view
+msgid "Transfer Number:"
+msgstr "Número de Transferencia:"
+
+#. module: cylinder
+#: field:cylinder.transfer,name:0
+#: field:cylinder.transfer.line,transfer_id:0
+msgid "Transfer Reference"
+msgstr "Referencia de Transferencia"
+
+#. module: cylinder
+#: field:cylinder.transfer.line,state:0
+msgid "Transfer Status"
+msgstr "Estado de Transferencia"
+
+#. module: cylinder
+#: view:cylinder.transfer:cylinder.view_cylinder_transfer_filter
+#: model:ir.ui.menu,name:cylinder.transfer_menu
+msgid "Transfers"
+msgstr "Transferencias"
+
+#. module: cylinder
+#: field:cylinder.cylinders,gas_id:0
+msgid "Type of Gas"
+msgstr "Tipo de Gas"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,message_unread:0
+#: field:cylinder.remit,message_unread:0
+#: field:cylinder.transfer,message_unread:0
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: cylinder
+#: field:cylinder.plant_remit,user_id:0
+#: field:cylinder.plant_remit.line_in,user_id:0
+#: field:cylinder.plant_remit.line_out,user_id:0
+#: field:cylinder.remit,user_id:0
+#: field:cylinder.remit.line_in,user_id:0
+#: field:cylinder.remit.line_out,user_id:0
+#: field:cylinder.transfer,user_id:0
+#: field:cylinder.transfer.line,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: cylinder
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "User:"
+msgstr "Usuario:"
+
+#. module: cylinder
+#: view:website:cylinder.report_cylinderlist
+#: view:website:cylinder.report_plant_remit_view
+#: view:website:cylinder.report_remit_view
+#: view:website:cylinder.report_transfer_view
+msgid "Yes"
+msgstr "Si"
+
+#. module: cylinder
+#: code:addons/cylinder/plant_remit.py:248
+#: code:addons/cylinder/plant_remit.py:360
+#: code:addons/cylinder/remit.py:306
+#: code:addons/cylinder/remit.py:432
+#, python-format
+msgid "You can not remove a cylinder remit line.\n"
+"Discard changes and try again."
+msgstr "No puede eliminar una línea del remito.\n"
+"Descarte los cambios y vuelva a intentar."
+
+#. module: cylinder
+#: code:addons/cylinder/transfers.py:268
+#, python-format
+msgid "You can not remove a cylinder transfer line.\n"
+"Discard changes and try again."
+msgstr "No se puede eliminar una línea de transferencia.\n"
+"Descarte los cambios e intente nuevamente."
+
+#. module: cylinder
+#: code:addons/cylinder/plant_remit.py:58
+#: code:addons/cylinder/remit.py:58
+#, python-format
+msgid "You can only delete draft remits!"
+msgstr "¡Sólo puede eliminar remitos borrador!"
+
+#. module: cylinder
+#: code:addons/cylinder/transfers.py:51
+#, python-format
+msgid "You can only delete draft transfers!"
+msgstr "¡Sólo puede eliminar transferencias borrador!"

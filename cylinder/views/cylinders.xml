@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="cylinder_form_view">
+            <field name="name">cylinder.form</field>
+            <field name="model">cylinder.cylinders</field>
+            <field name="arch" type="xml">
+                <form string="Cylinder">
+                    <sheet>
+                        <div class="oe_title" style="width: 390px;">
+                            <label string="Cylinder Number"/>
+                            <h1><field name="number" class="oe_inline"/></h1>
+                        </div>
+                        <div name="button_box" position="inside">
+
+                        </div>
+                        <field name="create_date" readonly="1" string="Created On"/>
+                        <field name="details"/>
+                        <notebook>
+                            <page string="Details">
+                                <group colspan="4">
+                                    <field name="rental" string="Available for rental"/>
+                                    <field name="active" string="Active"/>
+                                    <field name="rented" string="Is rented?"/>
+                                    <field name="plant" string="Is in plant?"/>
+                                    <field name="ht_date" string="Last Hidraulic Test"/>
+                                    <field name="cap" string="Has cap?"/>
+                                    <field name="location_id" string="Location" />
+                                    <field name="charge_status" string="Charge Status" />
+                                </group>
+                                <group colspan="4">
+                                    <field name="gas_id" string="Gas Type" />
+                                    <field name="capacity_id" string="Capacity"/>
+                                    <field name="propietary_id" string="Propietary"/>
+                                </group>
+                            </page>
+                            <page string="Movements Information">
+                                <separator string="Plant Arrival Detail"/>
+                                <group>
+                                    <field name="plant_arrival_date" string="Arrival date from plant"/>
+                                    <field name="arrival_control_number" string="Control Ticket Number"/>
+                                    <field name="control_arrival_detail" string="Detailed Information from Arrival"/>
+                                </group>
+                                <separator string="Plant Send Detail"/>
+                                <group>
+                                    <field name="plant_send_date" string="Send date to plant"/>
+                                    <field name="send_control_number" string="Control Ticket Number"/>
+                                    <field name="control_send_detail" string="Detailed Information from Send"/>
+                                </group>
+                                <separator string="Rental Information"/>
+                                <group>
+                                    <field name="last_rental_date" string="Last rental date"/>
+                                    <field name="partner_id" string="Partner"/>
+                                    <field name="last_rent_partner_id" string="Last Rental Partner"/>
+                                    <field name="last_return_date" string="Date from last return"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cylinder_search_view">
+            <field name="name">cylinder.search</field>
+            <field name="model">cylinder.cylinders</field>
+            <field name="arch" type="xml">
+                <search string="Cylinder">
+                    <field name="number" string="Number"/>
+                    <field name="propietary_id" string="Propietary"/>
+                    <field name="gas_id" string="Gas Type"/>
+                    <field name="partner_id" string="Partner"/>
+                    <separator />
+                    <filter string="Can be rented" name="filter_to_rent" icon="terp-accessories-archiver-minus" domain="[('rental','=',1)]"/>
+                    <filter string="Rented" name="filter_rented" icon="terp-accessories-archiver-minus" domain="[('rented','=',1)]"/>
+                    <filter string="Is in Plant" name="filter_rented" icon="terp-accessories-archiver-minus" domain="[('plant','=',1)]"/>
+                    <filter string="Is Active" name="filter_active" icon="terp-accessories-archiver-minus" domain="[('active','=',1)]"/>
+                    <filter string="Not Active" name="filter_not_active" icon="terp-accessories-archiver-minus" domain="[('active','=',0)]"/>
+                    <separator />
+                    <group expand="0" string="Group by ...">
+                        <filter name="group_by_gas" string="Gas Type" domain="[]" context="{'group_by' : 'gas_id'}"/>
+                        <filter name="group_by_propietary" string="Propietary" domain="[]" context="{'group_by' : 'propietary_id'}"/>
+                        <filter name="group_by_partner" string="Partner" domain="[]" context="{'group_by' : 'partner_id'}"/>
+                        <filter name="group_by_rented" string="Rented" domain="[]" context="{'group_by' : 'rented'}"/>
+                        <filter name="group_by_plant" string="Plant" domain="[]" context="{'group_by' : 'plant'}"/>
+                        <filter name="group_by_charge_status" string="Charge Status" domain="[]" context="{'group_by': 'charge_status'}"/>
+                        <filter name="group_by_location" string="Location" domain="[]" context="{'group_by': 'location_id'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cylinder_tree_view">
+            <field name="name">cylinder.tree</field>
+            <field name="model">cylinder.cylinders</field>
+            <field name="arch" type="xml">
+                <tree string="Cylinders Tree" colors="red:days_rented&gt;340;blue:days_rented&gt;91">
+                    <field name="number"/>
+                    <field name="propietary_id"/>
+                    <field name="partner_id"/>
+                    <field name="last_rental_date"/>
+                    <field name="gas_id"/>
+                    <field name="plant"/>
+                    <field name="rented"/>
+                    <field name="capacity_id"/>
+                    <field name="location_id"/>
+                    <field name="charge_status"/>
+                    <field name="days_rented"/>
+                    <field name="days_plant"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="cylinder_list_action">
+            <field name="name">Cylinders</field>
+            <field name="res_model">cylinder.cylinders</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first cylinder
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cylinder_list_menu" name="Cylinder List" parent="cylinder_menu" action="cylinder_list_action" sequence="1"/>
+
+    </data>
+</openerp>
