@@ -5,12 +5,10 @@
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
-                <div class="oe_clear" position="before">
                     <div class="oe_clear">
                         <label for="observations"/>
                     </div>
                     <field name="observations" class="oe_inline" placeholder="Commercial Observations"/>
-                </div>
             </field>
         </record>
     </data>
