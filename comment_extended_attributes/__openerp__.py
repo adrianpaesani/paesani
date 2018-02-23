@@ -33,7 +33,7 @@ Enables editing comments on Invoices after validation
 =====================
     """,
     "depends": [
-        "product",
+        "account",
     ],
     'external_dependencies': {
     },

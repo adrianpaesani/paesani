@@ -11,4 +11,4 @@ class AccountInvoice(models.Model):
 
     _inherit = 'account.invoice'
 
-    comments = fields.Text('Additional Information')
+    comment = fields.Text('Additional Information')
