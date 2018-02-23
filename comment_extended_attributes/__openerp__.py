@@ -32,9 +32,6 @@
 Enables editing comments on Invoices after validation
 =====================
     """,
-    "depends": [
-        "invoicing",
-    ],
     'external_dependencies': {
     },
     'data': [
