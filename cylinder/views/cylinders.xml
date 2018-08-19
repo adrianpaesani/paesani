@@ -25,13 +25,13 @@
                                     <field name="plant" string="Is in plant?"/>
                                     <field name="ht_date" string="Last Hidraulic Test"/>
                                     <field name="cap" string="Has cap?"/>
-                                    <field name="location_id" string="Location" />
+                                    <field name="location_id" string="Location" options='{"no_create": True, "no_open": True}'/>
                                     <field name="charge_status" string="Charge Status" />
                                 </group>
                                 <group colspan="4">
-                                    <field name="gas_id" string="Gas Type" />
-                                    <field name="capacity_id" string="Capacity"/>
-                                    <field name="propietary_id" string="Propietary"/>
+                                    <field name="gas_id" string="Gas Type" options='{"no_create": True, "no_open": True}'/>
+                                    <field name="capacity_id" string="Capacity" options='{"no_create": True, "no_open": True}' context="{'gas_id': gas_id}" />
+                                    <field name="propietary_id" string="Propietary" options='{"no_create": True, "no_open": True}'/>
                                 </group>
                             </page>
                             <page string="Movements Information">
@@ -50,8 +50,8 @@
                                 <separator string="Rental Information"/>
                                 <group>
                                     <field name="last_rental_date" string="Last rental date"/>
-                                    <field name="partner_id" string="Partner"/>
-                                    <field name="last_rent_partner_id" string="Last Rental Partner"/>
+                                    <field name="partner_id" string="Partner" options='{"no_create": True, "no_open": True}'/>
+                                    <field name="last_rent_partner_id" string="Last Rental Partner" options='{"no_create": True, "no_open": True}'/>
                                     <field name="last_return_date" string="Date from last return"/>
                                 </group>
                             </page>

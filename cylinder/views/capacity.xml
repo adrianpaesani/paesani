@@ -10,6 +10,7 @@
                         <group>
                             <field name="name"/>
                             <field name="code_id" />
+                            <field name="gas_id" />
                         </group>
                     </sheet>
                 </form>
@@ -23,6 +24,7 @@
                 <search>
                     <field name="name"/>
                     <field name="code_id" />
+                    <field name="gas_id" />
                 </search>
             </field>
         </record>

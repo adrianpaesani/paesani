@@ -22,7 +22,7 @@
 
 {
     'name': 'Cylinders',
-    'version': '9.1.0',
+    'version': '9.1.1',
     'author': 'Adrian Paesani',
     'category': 'Cylinder Management',
     'demo': [

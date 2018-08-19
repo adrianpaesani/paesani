@@ -75,3 +75,10 @@ class Cylinder(models.Model):
 				start_date = fields.Datetime.from_string(r.plant_arrival_date)
 				end_date = fields.Datetime.from_string(fields.Date.today())
 				r.days_plant = (end_date - start_date).days
+
+	@api.onchange('gas_id')
+	def _onchange_gas_id(self):
+		if self.gas_id:
+			return {'domain': {'capacity_id': [('gases_id', '=', self.gas_id.id)]}}
+		else:
+			return {'domain': {'gases_id': []}}

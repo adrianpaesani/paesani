@@ -9,6 +9,7 @@ class Gas(models.Model):
 	_order = 'name desc, id desc'
 
 	name = fields.Char('Name', required=True)
+	code = fields.Char('Gas Code')
 	description = fields.Text()
 	
-	capacity_ids = fields.One2many('cylinder.capacity', 'gases_id', 'Capacity')
+	capacity_ids = fields.One2many('cylinder.capacity', 'gases_id', string='Capacity')
