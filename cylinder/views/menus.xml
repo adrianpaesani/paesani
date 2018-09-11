@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-    	<menuitem id="main_cylinders_menu" name="Cylinders" sequence="1"/>
+    	<menuitem id="main_cylinders_menu" name="Cylinders" sequence="1" web_icon="cylinder,static/description/icon.png"/>
     	
     	<menuitem id="cylinder_menu" name="Main" parent="main_cylinders_menu" sequence="1"/>
 
