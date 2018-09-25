@@ -82,3 +82,51 @@ class Cylinder(models.Model):
 			return {'domain': {'capacity_id': [('gases_id', '=', self.gas_id.id)]}}
 		else:
 			return {'domain': {'gases_id': []}}
+
+#-------------------------------------------------------------
+# Capacity of Cylinder
+#-------------------------------------------------------------
+class Capacity(models.Model):
+	_name = 'cylinder.capacity'
+	_order = 'name desc, id desc'
+
+	name = fields.Char('Name', required=True)
+	code_id = fields.Many2one(
+		'cylinder.codes',
+		'Capacity Code',
+		)
+	gases_id = fields.Many2one('cylinder.gases', 'Gas')
+
+
+#-------------------------------------------------------------
+# Codes for Capacities
+#-------------------------------------------------------------
+class Capacity(models.Model):
+	_name = 'cylinder.codes'
+	_order = 'name desc, id desc'
+
+	name = fields.Char('Name', required=True)
+
+
+# -------------------------------------------------------------
+# Type of Gas
+# -------------------------------------------------------------
+class Gas(models.Model):
+    _name = 'cylinder.gases'
+    _order = 'name desc, id desc'
+
+    name = fields.Char('Name', required=True)
+    code = fields.Char('Gas Code')
+    description = fields.Text()
+
+    capacity_ids = fields.One2many('cylinder.capacity', 'gases_id', string='Capacity')
+
+#-------------------------------------------------------------
+# Locations
+#-------------------------------------------------------------
+class Location(models.Model):
+	_name = 'cylinder.locations'
+	_order = 'name desc, id desc'
+
+	name = fields.Char('Name', required=True)
+	address = fields.Char('Address')

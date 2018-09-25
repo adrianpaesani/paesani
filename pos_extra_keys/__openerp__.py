@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,10 +18,35 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import controllers
-import cylinder
-import plant_remit
-import remit
-import transfers
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+{
+    "name": "POS Extra Keys",
+    'version': '9.0.2.1.0',
+    'category': 'Tools',
+    'sequence': 14,
+    'author':  'Adrian Paesani',
+    'website': 'https://www.gasolsrl.biz',
+    'license': 'AGPL-3',
+    'summary': '',
+    "description": """
+POS Extra Keys
+Gives the ability to control pos with keyboard like a real pos withouth touchscreen
+=====================
+    """,
+    "depends": [
+        "pos",
+    ],
+    'external_dependencies': {
+    },
+    'data': [
+        # 'product_view.xml',
+    ],
+    'demo': [
+        #'demo/product.product.csv'
+    ],
+    'test': [
+    ],
+    'installable': False,
+    'auto_install': False,
+    'application': False,
+}

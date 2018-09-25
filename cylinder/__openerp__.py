@@ -62,6 +62,7 @@ Cylinders support tracking by number, different types of gases, owner informatio
         # 'data/mail_template_data.xml',
     ],
     'installable': True,
+    'application': True,
     'auto_install': False,
 }
 
