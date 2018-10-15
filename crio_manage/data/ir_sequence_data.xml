@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_crio_partner_order" model="ir.sequence">
+            <field name="name">Crio Partner Order</field>
+            <field name="code">crio.partner_order</field>
+            <field name="prefix">CPO-</field>
+            <field name="padding">8</field>
+        </record>
+        <record id="seq_crio_warehouse_order" model="ir.sequence">
+            <field name="name">Crio Warehouse Order</field>
+            <field name="code">crio.warehouse_order</field>
+            <field name="prefix">CWO-</field>
+            <field name="padding">8</field>
+        </record>
+        <record id="seq_crio_plant_order" model="ir.sequence">
+            <field name="name">Crio Plant Movement</field>
+            <field name="code">crio.plant_movement</field>
+            <field name="prefix">CPM-</field>
+            <field name="padding">8</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="crio_menu_root"
+              name="Plant Management"
+              active="True"
+              sequence="2" />
+
+    <menuitem id="crio_management_menu"
+              name="Management"
+              parent="crio_menu_root"
+              sequence="2" />
+
+    <menuitem id="crio_packages_menu_root"
+              name="Packages"
+              parent="crio_menu_root"
+              sequence="3" />
+
+    <menuitem id="crio_packages_menu"
+              parent="crio_packages_menu_root"
+              action="crio_package_action_all"
+              sequence="1" />
+
+    <menuitem id="res_partner_menu"
+              parent="crio_management_menu"
+              action="base.action_partner_form"
+              sequence="3" groups="sales_team.group_sale_salesman" />
+</odoo>

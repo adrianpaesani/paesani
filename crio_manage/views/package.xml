@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+    <!-- base structure of package -->
+
+    <record id="package_form_view" model="ir.ui.view">
+        <field name="name">crio.package.form</field>
+        <field name="model">crio.package</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <form string="Package">
+                <sheet>
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Number" />
+                        <h1><field name="name" placeholder="Number or Code" /></h1>
+                        <div name="options">
+                            <div>
+                                <field name="active" />
+                                <label for="active" />
+                            </div>
+                            <div>
+                                <field name="rental" />
+                                <label for="rental" />
+                            </div>
+                            <div>
+                                <field name="rented" />
+                                <label for="rented" />
+                            </div>
+                            <div>
+                                <field name="days_rental" />
+                                <label for="days_rental" />
+                                <field name="days_plant" />
+                                <label for="days_plant" />
+                            </div>
+                        </div>
+                    </div>
+                    <notebook>
+                        <page string="General Information" name="general_information">
+                            <group name="group_general">
+                                <field name="barcode" />
+                                <field name="ht_date" />
+                                <field name="propietary_id" />
+                                <field name="details" />
+                            </group>
+                            <group name="package_detail">
+                                <field name="gas_id" />
+                                <field name="capacity_id" />
+                                <field name="charge_status" />
+                                <field name="tags_ids" widget="many2many_tags" />
+                            </group>
+                        </page>
+                        <page string="Movement Detail" name="movement_detail">
+                            <group name="plant_movement">
+                                <field name="plant_date_arrival" />
+                                <field name="plant_date_send" />
+                                <field name="plant_order_number" />
+                            </group>
+                            <group name="warehouse_movement">
+                                <field name="warehouse_date_arrival" />
+                                <field name="warehouse_date_send" />
+                                <field name="warehouse_order_number" />
+                                <field name="warehouse_location_id" />
+                            </group>
+                            <group name="partner_movement">
+                                <field name="partner_date_arrival" />
+                                <field name="partner_date_send" />
+                                <field name="partner_order_number" />
+                                <field name="partner_id" />
+                                <field name="partner_last_rental_id" />
+                            </group>
+                            <group name="package_special">
+                                <field name="warehouse_id" />
+                                <field name="product_id" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="package_search_view" model="ir.ui.view">
+        <field name="name">crio.package.search</field>
+        <field name="model">crio.package</field>
+        <field name="arch" type="xml">
+            <search string="Package">
+                <field name="name" string="Number" filter_domain="['|','|',('barcode','ilike',self),('name','ilike',self),('barcode','ilike',self)]" />
+                <field name="propietary_id" string="Propietary" filter_domain="[('propietary_id', 'child_of', raw_value)]" />
+                <field name="gas_id" string="Gas Type" filter_domain="[('propietary_id', 'child_of', raw_value)]" />
+                <field name="partner_id" string="Partner" filter_domain="[('propietary_id', 'child_of', raw_value)]" />
+                <separator />
+                <filter string="Can be rented" name="filter_can_rent" icon="terp-accesories-archiver-minus" domain="[('','=',1)]" />
+                <filter string="Rented" name="filter_rented" icon="terp-accessories-archiver-minus" domain="[('rented','=',1)]"/>
+                <filter string="Location" name="filter_plant" icon="terp-accessories-archiver-minus" domain="[('plant','=',1)]"/>
+                <filter string="Is Active" name="filter_active" icon="terp-accessories-archiver-minus" domain="[('active','=',1)]"/>
+                <filter string="Not Active" name="filter_not_active" icon="terp-accessories-archiver-minus" domain="[('active','=',0)]"/>
+                <filter string="Available for Rental" name="filter_available_rental" icon="terp-accessories-archiver-minus" domain="[('rental','=',1)]"/>
+                <filter string="Not Available for Rental" name="filter_not_available_rental" icon="terp-accessories-archiver-minus" domain="[('rental','=',0)]"/>
+                <separator />
+                <group expand="0" string="Group by ...">
+                    <filter name="group_by_gas" string="Gas Type" domain="[]" context="{'group by' : 'gas_id'}" />
+                    <filter name="group_by_propietary" string="Propietary" domain="[]" context="{'group by' : 'propietary_id'}" />
+                    <filter name="group_by_partner" string="Partner" domain="[]" context="{'group_by' : 'partner_id'}"/>
+                    <filter name="group_by_rented" string="Rented" domain="[]" context="{'group_by' : 'rented'}"/>
+                    <filter name="group_by_charge_status" string="Charge Status" domain="[]" context="{'group_by': 'charge_status'}"/>
+                    <filter name="group_by_location" string="Location" domain="[]" context="{'group_by': 'location'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="crio_package_action_all" model="ir.actions.act_window">
+        <field name="name">Packages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crio.package</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new package.
+            </p>
+            <p>
+                You must define a package for rental operations, stock, etc.
+            </p>
+            <p>
+                The package form contains information to simplify the rent
+                process: serial number (name, number, or other identification),
+                barcode, last hidrostatic test, owner, gas type, capacity, etc.
+            </p>
+        </field>
+    </record>
+
+    <record id="package_tree_view" model="ir.ui.view">
+        <field name="name">crio.package.tree</field>
+        <field name="model">crio.package</field>
+        <field eval="7" name="priority" />
+        <field name="arch" type="xml">
+            <tree string="Packages">
+                <field name="name" />
+                <field name="barcode" />
+                <field name="propietary_id" />
+                <field name="partner_id" />
+                <field name="gas_id" />
+                <field name="capacity_id" />
+                <field name="location" />
+                <field name="rented" />
+                <field name="days_rental" />
+                <field name="charge_status" />
+                <field name="partner_date_send" />
+                <field name="partner_order_number" />
+                <field name="partner_id" />
+                <field name="days_plant" />
+                <field name="active" invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="package_kanban_view" model="ir.ui.view">
+        <field name="name">Package Kanban</field>
+        <field name="model">crio.package</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_details">
+                            <strong class="o_kanban_record_title"><field name="name" /></strong>
+                            <div class="o_kanban_tags_section">
+                                <field name="tags_ids" />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+   
+    <!-- Package Gas -->
+    <record id="package_gas_form_view" model="ir.ui.view">
+        <field name="name">crio.package.gas.form.view</field>
+        <field name="model">crio.package.gas</field>
+        <field name="arch" type="xml">
+            <form string="Gas">
+                <group>
+                    <group string="Gas">
+                        <field name="name" />
+                        <field name="formula" />
+                        <field name="description" />
+                    </group>
+                    <group string="Attributes">
+                        <field name="package_ids" />
+                        <field name="type_ids" />
+                    </group>
+                    <group string="Data">
+                        <field name="un_safety_data_sheet" />
+                        <field name="un_safety_data_sheet_fn" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="package_gas_search_view" model="ir.ui.view">
+        <field name="name">crio.package.gas.search.view</field>
+        <field name="model">crio.package.gas</field>
+        <field name="arch" type="xml">
+            <search string="Gas">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="package_gas_tree_view" model="ir.ui.view">
+        <field name="name">crio.package.gas.tree.view</field>
+        <field name="model">crio.package.gas</field>
+        <field name="arch" type="xml">
+            <tree string="Gas">
+                <field name="name" />
+                <field name="formula" />
+                <field name="package_ids" />
+                <field name="type_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="package_gas_type_action" model="ir.actions.act_window">
+        <field name="name">Gases</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crio.package.gas</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new gas.
+            </p>
+        </field>
+    </record>
+
+    <!-- Package Type -->
+
+    <record id="package_type_form_view" model="ir.ui.view">
+        <field name="name">crio.package.type.form.view</field>
+        <field name="model">crio.package.type</field>
+        <field name="arch" type="xml">
+            <form string="Package Type">
+                <group>
+                    <group string="Type">
+                        <field name="name" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="package_type_search_view" model="ir.ui.view">
+        <field name="name">crio.package.type.search.view</field>
+        <field name="model">crio.package.type</field>
+        <field name="arch" type="xml">
+            <search string="Package Type">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="package_type_tree_view" model="ir.ui.view">
+        <field name="name">crio.package.type.tree.view</field>
+        <field name="model">crio.package.type</field>
+        <field name="arch" type="xml">
+            <tree string="Package Types">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="package_type_action" model="ir.actions.act_window">
+        <field name="name">Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crio.package.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new package type.
+            </p>
+        </field>
+    </record>
+
+    <!-- Package Capacity -->
+
+    <record id="package_capacity_form_view" model="ir.ui.view">
+        <field name="name">crio.package.capacity.form.view</field>
+        <field name="model">crio.package.capacity</field>
+        <field name="arch" type="xml">
+            <form string="Package Capacity">
+                <group>
+                    <group string="Type">
+                        <field name="name" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="package_capacity_search_view" model="ir.ui.view">
+        <field name="name">crio.package.capacity.search.view</field>
+        <field name="model">crio.package.capacity</field>
+        <field name="arch" type="xml">
+            <search string="Package Capacity">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="package_capacity_tree_view" model="ir.ui.view">
+        <field name="name">crio.package.capacity.tree.view</field>
+        <field name="model">crio.package.capacity</field>
+        <field name="arch" type="xml">
+            <tree string="Package Capacity">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="package_type_action" model="ir.actions.act_window">
+        <field name="name">Package Capacity</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crio.package.capacity</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new package capacity.
+            </p>
+        </field>
+    </record>
+
+    <!-- Package Tags -->
+
+    <record id="package_tags_form_view" model="ir.ui.view">
+        <field name="name">crio.package.tag.form.view</field>
+        <field name="model">crio.package.tag</field>
+        <field name="arch" type="xml">
+            <form string="Package Tags">
+                <group>
+                    <group string="Tags">
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="color" />
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="package_tags_search_view" model="ir.ui.view">
+        <field name="name">crio.package.tag.search.view</field>
+        <field name="model">crio.package.tag</field>
+        <field name="arch" type="xml">
+            <search string="Package Tags">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="package_tags_tree_view" model="ir.ui.view">
+        <field name="name">crio.package.tag.tree.view</field>
+        <field name="model">crio.package.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Package Tags">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="package_tags_action" model="ir.actions.act_window">
+        <field name="name">Package Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">crio.package.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to define a new package tag.
+            </p>
+        </field>
+    </record>
+
+    </data>
+</odoo>
